@@ -1,0 +1,267 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetic Service - Единая служба установки и подключения бытовой техники.</title>
+  <link rel="stylesheet" href="css/app.css">
+
+  <!-- DADATA SUGGESTION CSS -->
+  <link href="https://cdn.jsdelivr.net/jquery.suggestions/17.2/css/suggestions.css" type="text/css" rel="stylesheet" />
+
+  
+</head>
+<body>
+
+  <!-- GEO MODAL #TODO: Доделать дизайн окна -->
+  <!-- #TODO: Проверить в IE 10 работу DADATA-подсказки. -->
+
+  <div class="reveal" id="geoModalTop" data-reveal>
+    <h4>#TODO: Доделать дизайн блока</h4>
+    <input class="" id="geoModalTopInput" size="50"/>
+    
+  </div>
+
+  <!-- HEADER -->
+  <header class="my-header">
+    <div class="row">
+      <div class="small-12 large-8 column logo">LOGO</div>
+      <div class="small-12 large-4 column">
+        <div>
+          Единая служба установки
+        </div> 
+        <div>
+          <h4>8 (999) 999-99-99</h4>
+        </div>
+        <div>
+          установим и подключим в течении 24 часов
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <section class="my-main">
+    <div class="row">
+
+      <div class="small-12 large-4 large-offset-1 column main-left">
+        <div>
+          <h4>Установка и подключение <br> бытовой и цифровой техники</h4>
+        </div>
+        <div class="large-offset-1 main-ul">
+          <ul>
+            <li>Гарантия 1 год на работу и материалы</li>
+            <li>Фиксированные цены</li>
+            <li>Установка в течении дня</li>
+          </ul>
+        </div>
+        <div class="large-offset-1 main-ul-2">
+          <ul>
+            <li>
+              <a href="#" class="my-a-line">Рассчитать стоимость</a> <span>в <a data-open="geoModalTop" class="my-a-choose"></a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="small-12 large-7 column main-right">
+        <!-- BONUS SLIDER OR WOW-INFORMATION -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEXT-CONTENT-INFORMATION -->
+  <section class="text-content">
+    <div class="row text-content-information">     
+      <div class="small-12 large-4 column text-content-information--text">
+        <h5>Header about smth important information</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi repellendus rerum, laboriosam. Temporibus maiores incidunt ad sapiente culpa laboriosam, reprehenderit dolores accusamus, officiis distinctio neque! Voluptatum, sapiente cum assumenda similique.</p>
+      </div>
+      <div class="small-12 large-4 column text-content-information--text">
+        <h5>Reprehenderit dolores accusamus</h5>
+        <p>Corporis provident necessitatibus amet saepe tenetur obcaecati totam consequatur, suscipit voluptatum. Natus, inventore? Expedita officiis cum dolore ratione nostrum magni veniam labore!</p>
+      </div>
+      <div class="small-12 large-4 column text-content-information--text">
+        <h5>Harum officia aliquid possimus</h5>
+        <p>Dignissimos, optio ipsa quasi accusamus obcaecati labore, voluptate, iure necessitatibus ducimus nulla voluptatem et laboriosam ab. Dolores, harum officia aliquid possimus corrupti.</p>
+      </div>  
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="my-form">
+    <form>
+
+      <!-- FORM HEADER -->
+      <div class="row align-center">
+        <div class="small-10 column my-form-header">
+          <h5>Рассчитайте стоимость онлайн</h5>
+        </div>
+      </div>
+
+      <!-- FORM CENTER PAGE 1-->
+
+      <div class="row align-center" data-toggler=".my-hide" id="my-form-center-page1">
+        <div class="small-10 column my-form-center">
+
+          <!-- LINE 1 SHOW ALWAYS -->
+          <div class="row align-center"> 
+            <div class="small-8 column">
+              <select required class="my-select-one">
+                <option value="" disabled selected hidden>Бытовая техника / Кондиционеры / ТВ / Спутниковое телевидение / Цифровая техника</option>
+                <option value="1">Бытовая техника</option>
+                <option value="2">Кондиционер</option>
+                <option value="3">Телевизор</option>
+                <option value="4">Спутниковое телевидение</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- LINE 2 BT SHOW DEPENDS -->
+          <div class="row align-center lineTwoBT"> 
+            <div class="small-8 column">
+              <select required class="">
+                <option value="" disabled selected hidden>А именно</option>
+                <option value="1">Стиралка</option>
+                <option value="2">Посудомойка</option>
+                <option value="3">Плита</option>
+                <option value="4">Холодос</option>
+              </select>
+            </div>
+            <div class="small-4 column my-hide">
+              <select required class="">
+                <option value="" disabled selected hidden>Встроенная/соло</option>
+                <option value="1">Встроенная</option>
+                <option value="2">Соло</option>
+              </select>
+            </div> 
+          </div>
+
+          <!-- LINE 2 C SHOW DEPENDS -->
+          <div class="row align-center lineTwoC"> 
+            <div class="small-4 column">
+              <select required>
+                <option value="" disabled selected hidden>Установка / Демонтаж / Обслуживание</option>
+                <option value="1">Установка</option>
+                <option value="2">Демонтаж</option>
+                <option value="3">Обслуживание</option>
+              </select>
+            </div>
+            <div class="small-4 column">
+              <select required>
+                <option value="" disabled selected hidden>Мощность</option>
+                <option value="1">7000-9000</option>
+                <option value="2">12000-16000</option>
+                <option value="2">18000-24000</option>
+              </select>
+            </div> 
+          </div>
+
+          <!-- LINE 3 SHOW ALWAYS -->
+          <div class="row align-center"> 
+            <div class="small-4 column">
+              <input type="text" placeholder="Москва" id="geoDownInput"/>
+            </div>
+            <div class="small-4 column">
+              <input type="text" placeholder="8 (999) 999-99-99" id="my-select-phone"/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FORM CENTER PAGE 2 -->
+      
+      <div class="row align-center my-hide" data-toggler=".my-show" id="my-form-center-page2">
+        <div class="small-10 column my-form-center">
+
+          <row class="row align-beetwin my-prices large-uncollapse">
+            <div class="small-6 column my-price">
+              <h4>Стандарт - %price%</h4>
+              <p>Установка производиится только на подготовленные коммуникаци</p>
+              <p><a href="">+ перечень и объем работ и материалов</a></p>
+              <ul>
+                <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
+                <li><input id="checkbox2" type="checkbox"><label for="checkbox2">Доработка водоснабжения</label></li>
+                <li><input id="checkbox3" type="checkbox"><label for="checkbox3">Доработка слива</label></li>
+              </ul>
+            </div>
+            <div class="small-6 column my-price">
+              <h4>Премиум - %price%</h4>
+              <p>Необходимые доработки уже включены в стоимость пакета</p>
+              <p><a href="">+ перечень и объем работ и материалов</a></p>
+              <ul>
+                <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
+                <li><input id="checkbox2" type="checkbox"><label for="checkbox2">Доработка водоснабжения</label></li>
+                <li><input id="checkbox3" type="checkbox"><label for="checkbox3">Доработка слива</label></li>
+              </ul>
+            </div>
+          </row>
+          
+        </div>  
+      </div>
+
+      <!-- FORM FOOTER + BUTTON -->
+      <div class="row align-center">
+        <div class="small-10 column my-form-footer">
+          <div class="row align-center">
+            
+            <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-back-button">
+              <h5><a data-toggle="my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button">НАЗАД</a></h5>
+            </div>
+
+            <!-- PAGE 1 BUTTON -->
+            <div class="small-4 column" data-toggler=".my-hide" id="my-next-button">
+              <h5><a data-toggle="my-form-center-page1 my-form-center-page2 my-back-button my-next-button my-send-button">КНОПКА</a></h5>
+            </div>
+
+            <!-- PAGE 2 BUTTON -->
+            <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-send-button">
+              <h5><a class="my-send-button-class">ОТПРАВИТЬ ЗАЯВКУ</a></h5>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="my-footer"> 
+
+    <div class="row align-center">
+      <div class="small-12 large-3 column">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+      <div class="small-12 large-3 column">
+
+      </div>
+      <div class="small-12 large-3 column">
+
+      </div>
+    </div>
+
+  </section>
+
+  <!--  GIT TEST 01 -->
+  <!--  GIT TEST 02 -->
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/what-input/dist/what-input.js"></script>
+  <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- YANDEX MAPS API -->
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+  <!-- DADATA.ru jQuery.Suggestion Plugin -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/17.2/js/jquery.suggestions.min.js"></script>
+
+</body>
+</html>
