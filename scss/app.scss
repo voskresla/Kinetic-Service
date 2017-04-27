@@ -1,0 +1,191 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@include foundation-global-styles;
+// @include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// 38. My STYLES
+// -------------
+
+.main-ul {
+	border-left: 1px gray solid;
+	margin-top: 2em;
+}
+
+.main-ul li {
+	display: block;
+}
+
+.main-ul-2 li {
+	display: block;
+	padding-top: 1em;
+}
+
+.my-a-line {
+	border-bottom: 2px #E23F54 solid;
+	padding-bottom: .5em;
+	color: #fff;
+	font-weight: 400;
+}
+
+.main-ul-2 span {
+	
+	padding-left: 1em;
+	font-size: 18px;
+
+	.my-a-choose {
+		border-bottom: 1px #fff solid;		
+		color: #fff;		
+	}
+}
+
+.text-content {
+	padding-top: 2em;
+}
+
+.text-content-information {
+	background-color: #fff;
+}
+
+.text-content-information--text {
+	
+	h5 {
+		padding-top: 2em;
+		padding-left: 1em;
+	}
+
+	p {
+		padding: 1.2em;
+	}
+}
+
+select:invalid { color: gray; }
+
+.my-header {
+	padding-top: 2em;
+	color: #fff;
+	h4 {
+		margin: 0;
+	}
+}
+
+.my-main {
+	padding-top: 4em;
+	color: #fff;
+}
+
+.my-form {
+
+	.row {
+		background-color: #fff;
+	}
+}
+
+.my-form-header {
+	border: 1px #e6e6e6 solid;
+	border-radius: 6px 6px 0px 0px;
+	text-align: center;
+	padding: 1.2em;
+	background-color: #477C8E;
+	color: #fff;
+}
+
+.my-form-center {
+	border-left: 1px #e6e6e6 solid;
+	border-right: 1px #e6e6e6 solid;
+	margin-left: 1px;
+	margin-right: 1px;
+	padding-top: 1em;
+}
+
+.my-form-footer {
+	border: 1px #e6e6e6 solid;
+	border-radius: 0px 0px 6px 6px;
+	text-align: center;
+	padding: 1.2em;
+	margin-bottom: 2em;
+	
+	
+}
+
+.my-footer {
+
+	.row {
+		background-color: #EEEEEE;
+		padding-top: 2em;
+	}
+}
+ 
+.lineTwoBT, .lineTwoC {
+	display:none;
+}
+
+#geoModalTop {
+	height: 200px;
+}
+
+.my-hide {
+	display:none;
+}
+
+.my-show {
+	display:flex;
+}
+
+.my-prices {
+
+	padding-left: 2em;
+
+}
+
+.my-price {
+	
+
+
+}
