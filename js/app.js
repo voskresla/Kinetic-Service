@@ -56,7 +56,7 @@ window.onload = function () {
 
 	var btObjects = {
 		"BT_WM": ["Встроенная","Соло"],
-		"BT_H": ["Встроенный","Соло"],
+		"BT_H": ["Встроенный","Соло","Side-By-Side"],
 		"BT_P": ["Встроенная","Соло"],
 		"SETUP": ["7000","9000","12000"],
 		"REMOVE": ["7000","9000","12000"],
@@ -156,7 +156,7 @@ window.onload = function () {
 			if (bt) {
 				// Первый левый DIV в который обернем первый SELECT
 				var firstBtDiv = document.createElement("div");
-				firstBtDiv.className = "small-8 column js-firstBtDiv";
+				firstBtDiv.className = "small-8 column js-firstBtDiv js-cruwl";
 				lineTwoDiv.appendChild(firstBtDiv);
 
 				// Первый SELECT
@@ -218,8 +218,8 @@ window.onload = function () {
 			var secondBtDiv_select = document.createElement("select");
 
 			secondBtDiv_select.className = "my-select-three";
-			firstBtDiv.className = "small-4 column js-firstBtDiv";
-			secondBtDiv.className = "small-4 column js-secondBtDiv";
+			firstBtDiv.className = "small-4 column js-firstBtDiv js-cruwl";
+			secondBtDiv.className = "small-4 column js-secondBtDiv js-cruwl";
 			lineTwoDiv.appendChild(secondBtDiv);
 			secondBtDiv.appendChild(secondBtDiv_select);
 
@@ -236,7 +236,7 @@ window.onload = function () {
 		}
 
 		else {
-			document.querySelector(".js-firstBtDiv").className = "small-8 column js-firstBtDiv";
+			document.querySelector(".js-firstBtDiv").className = "small-8 column js-firstBtDiv js-cruwl";
 		}
 
 	};
@@ -247,11 +247,19 @@ window.onload = function () {
 
 		// #TODO: Хватит писать как мудак. Напиши обход всех  OPTION:CHECKED разом а не руками их собирай.
 		
-		var textToSend= document.querySelector(".my-select-two option:checked").text 
-		+ " " + document.querySelector(".my-select-two option:checked").text
-		+ " " + document.querySelector(".my-select-three option:checked").text
-		+ " " + document.querySelector("#geoDownInput").value
-		+ " " + document.querySelector("#my-select-phone").value;
+		var textToSend = (function () {
+			
+			var allJsCruwl = document.querySelectorAll(".js-cruwl option:checked");
+			var text = "";
+
+			for (var i = 0; i < allJsCruwl.length; i++) {
+				text += allJsCruwl[i].text;
+			}
+
+			return text;
+		
+		})();
+
 		console.log(textToSend);
 	}
 
