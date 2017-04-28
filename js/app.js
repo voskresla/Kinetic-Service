@@ -176,6 +176,37 @@ window.onload = function () {
 
 	}
 
+	var productObject = {
+
+		"btBT_WMВстроенная" : 
+		{
+			"standartText" : "Установка производиится только на подготовленные коммуникаци",
+			"vipText": "Необходимые доработки уже включены в стоимость пакета",
+			"standartOptions": ["Доработка электросети | 700","Доработка водоснабжения | 800","Доработка слива | 900"],
+			"vipOptions": ["Доработка электросети | включено","Доработка водоснабжения | включено","Доработка слива | включено"],
+			"standartWorks": "Link to works list",
+			"vipWorks": "Link to works list",
+
+		},
+
+		"btBT_WMСоло" : 
+		{
+			"standartText" : "",
+			"vipText": "",
+			"standartOptions": ["option1 | priceOption1","option2 | priceOption2","option3 | priceOption3"],
+			"vipOptions": ["option1 | priceOption1","option2 | priceOption2","option3 | priceOption3"],
+			"standartWorks": "",
+			"vipWorks": "",
+
+		}
+
+	}
+
+	var pricesObject = {
+		"btBT_WMВстроенная" : ["1000","1500"],
+		"btBT_WMСоло" : ["500"]
+	}
+
 	console.log(topLevelObjects);
 
 	// DADATA.ru Suggestion
@@ -380,6 +411,105 @@ window.onload = function () {
 
 	};
 
+	// FORM BACK BUTTON
+
+	document.querySelector(".my-back-button").onclick = function () {
+		document.querySelector("#standartLi").innerHTML="";
+		document.querySelector("#vipLi").innerHTML="";
+		document.querySelector("#standartText").innerHTML="";
+		document.querySelector("#vipLi").innerHTML="";
+		document.querySelector("#standartPrice").innerHTML="";
+		document.querySelector("#vipPrice").innerHTML="";
+	}
+
+	// FORM NEXT BUTTON
+
+	document.querySelector("#my-next-button").onclick = function () {
+
+		
+
+		// Соибраем все JS-CRUWL
+		var textToSend = (function () {
+			
+			var allJsCruwl = document.querySelectorAll(".js-cruwl option:checked");
+			var text = "";
+
+			for (var i = 0; i < allJsCruwl.length; i++) {
+				text += allJsCruwl[i].value;
+			}
+
+			return text;
+
+		})();
+
+		console.log(textToSend);
+
+		var normalPrice = pricesObject[textToSend][0] || 0;
+		var vipPrice = pricesObject[textToSend][1] || 0;
+		var standartText = productObject[textToSend]["standartText"] || 0;
+		var standartOptions = productObject[textToSend]["standartOptions"] || 0;
+		var standartWorks = productObject[textToSend]["standartWorks"] || 0;
+
+		document.querySelector("#normalPrice").innerHTML = normalPrice;
+		document.querySelector("#standartText").innerHTML = standartText;
+		document.querySelector("#standartWorks").innerHTML = standartWorks;
+
+		// Генерим LI от StandartOptions
+
+		console.log(standartOptions[0].split("|")[0]);
+
+		if (standartOptions) {
+
+			for (var i = 0; i < standartOptions.length; i++) {
+				var standartLi = document.createElement("li");
+				var optionList = standartOptions[i].split("|");
+				standartLi.innerHTML = 
+				"<input id='standartCheckbox" + i + "' type='checkbox'>" + 
+				"<label for='standartCheckbox" + i + "'>" + optionList[0] + 
+				"<span>"+ optionList[1] + "</span></label>";
+				document.querySelector("#standartLi").appendChild(standartLi);
+			}
+
+		}
+
+		if (vipPrice) {
+			document.querySelector("#vipDiv").className = "small-6 column my-price";
+			document.querySelector("#vipPrice").innerHTML = vipPrice;
+			
+			var vipText = productObject[textToSend]["vipText"] || 0;
+			var vipOptions = productObject[textToSend]["vipOptions"] || 0;
+			var vipWorks = productObject[textToSend]["vipWorks"] || 0;
+
+
+			document.querySelector("#vipText").innerHTML = vipText;
+			document.querySelector("#vipWorks").innerHTML = vipWorks;
+
+			if (vipOptions) {
+
+// Доработать onclick у чекбокса. Toggle класса JS-CRUWL
+
+			for (var i = 0; i < vipOptions.length; i++) {
+				var vipLi = document.createElement("li");
+				var optionList = vipOptions[i].split("|");
+				vipLi.innerHTML = 
+				"<input id='vipCheckbox" + i + "' type='checkbox'>" + 
+				"<label for='vipCheckbox" + i + "'>" + optionList[0] + 
+				"<span>"+ optionList[1] + "</span></label>";
+				document.querySelector("#vipLi").appendChild(vipLi);
+			}
+
+		}
+
+
+		}
+		else {
+			document.querySelector("#vipDiv").className = "small-6 column my-price my-hide";
+		}
+
+
+
+	}
+
 	// FORM SUBMIT FUNCTION
 
 	document.querySelector(".my-send-button-class").onclick = function () {
@@ -392,7 +522,7 @@ window.onload = function () {
 			var text = "";
 
 			for (var i = 0; i < allJsCruwl.length; i++) {
-				text += allJsCruwl[i].text;
+				text += allJsCruwl[i].value;
 			}
 
 			return text;

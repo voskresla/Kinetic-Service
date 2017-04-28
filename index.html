@@ -178,25 +178,29 @@
       <div class="row align-center my-hide" data-toggler=".my-show" id="my-form-center-page2">
         <div class="small-10 column my-form-center">
 
-          <row class="row align-beetwin my-prices large-uncollapse">
-            <div class="small-6 column my-price">
-              <h4>Стандарт - %price%</h4>
-              <p>Установка производиится только на подготовленные коммуникаци</p>
-              <p><a href="">+ перечень и объем работ и материалов</a></p>
-              <ul>
-                <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
-                <li><input id="checkbox2" type="checkbox"><label for="checkbox2">Доработка водоснабжения</label></li>
-                <li><input id="checkbox3" type="checkbox"><label for="checkbox3">Доработка слива</label></li>
+          <row class="row align-center my-prices large-uncollapse">
+            <div class="small-6 column my-price" id="standartDiv">
+              <h4>Стандарт - <span id="normalPrice">%price%</span></h4>
+              <p id="standartText">%standartText%</p>
+              <p><a href="" id="standartWorks">%standartWorks%</a></p>
+              <ul id="standartLi">
+
+                <!-- Количество LI генерим в JS -->
+                
+                <!-- <li><input id="checkbox1" type="checkbox"><label for="checkbox1">%standartOptions - Option%n% - Price%n% %</label></li>
+                <li><input id="checkbox2" type="checkbox"><label for="checkbox2">%standartOptions - Option%n% - Price%n% %</label></li>
+                <li><input id="checkbox3" type="checkbox"><label for="checkbox3">%standartOptions - Option%n% - Price%n% %</label></li> -->
+              
               </ul>
             </div>
-            <div class="small-6 column my-price">
-              <h4>Премиум - %price%</h4>
-              <p>Необходимые доработки уже включены в стоимость пакета</p>
-              <p><a href="">+ перечень и объем работ и материалов</a></p>
-              <ul>
-                <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
+            <div class="small-6 column my-price my-hide " id="vipDiv">
+              <h4>Премиум - <span id="vipPrice">%price%</span></h4>
+              <p id="vipText"></p>
+              <p><a href="" id="vipWorks"></a></p>
+              <ul id="vipLi">
+                <!-- <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
                 <li><input id="checkbox2" type="checkbox"><label for="checkbox2">Доработка водоснабжения</label></li>
-                <li><input id="checkbox3" type="checkbox"><label for="checkbox3">Доработка слива</label></li>
+                <li><input id="checkbox3" type="checkbox"><label for="checkbox3">Доработка слива</label></li> -->
               </ul>
             </div>
           </row>
@@ -210,7 +214,7 @@
           <div class="row align-center">
             
             <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-back-button">
-              <h5><a data-toggle="my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button">НАЗАД</a></h5>
+              <h5><a data-toggle="my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button" class="my-back-button">НАЗАД</a></h5>
             </div>
 
             <!-- PAGE 1 BUTTON -->
