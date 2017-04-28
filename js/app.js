@@ -11,60 +11,169 @@ window.onload = function () {
 		"bt": [
 		{
 			"selectValue": "BT_WM",
-			"selectOption" : "Стиральная машина",
-			"addOptions" : 
-			[
-			"Встроенная",
-			"Соло"
-			]
+			"selectOption" : "Стиральная машина"
+		},
+
+		{
+			"selectValue": "BT_DW",
+			"selectOption" : "Посудомоечная машина"
 		},
 		{
 			"selectValue": "BT_H",
-			"selectOption" : "Холодильник",
-			"addOptions" : 
-			[
-			"Встроенный",
-			"Соло"
-			]
+			"selectOption" : "Холодильник"
 		},
 		{
-			"selectValue": "BT_P",
-			"selectOption" : "Плита",
-			"addOptions" : 
-			[
-			"Встроенный",
-			"Соло"
-			]
+			"selectValue": "BT_EO",
+			"selectOption" : "Электрическая плита"
+		},
+		{
+			"selectValue": "BT_EPP",
+			"selectOption" : "Электрическая панель"
+		},
+		{
+			"selectValue": "BT_D",
+			"selectOption" : "Духовой шкаф (независимый)"
+		},
+		{
+			"selectValue": "BT_D_EP",
+			"selectOption" : "Зависимые электрическая панель и духовой шкаф"
+		},
+		{
+			"selectValue": "BT_AIR",
+			"selectOption" : "Вытяжка"
+		},
+		{
+			"selectValue": "BT_WATER",
+			"selectOption" : "Водонагреватель"
 		}
+		
 		],
 
 		"cond": [
 		{
-			"selectValue": "SETUP",
+			"selectValue": "condSetup",
 			"selectOption" : "Установка",
 		},
 		{
-			"selectValue": "REMOVE",
+			"selectValue": "condRemove",
 			"selectOption" : "Демонтаж",
 		},
 		{
-			"selectValue": "SERV",
+			"selectValue": "condServ",
 			"selectOption" : "Обслуживание",
 		}
-		]		
+		],
+
+		"tv": [
+		{
+			"selectValue": "tvTableSetup",
+			"selectOption" : "Установка ТВ на тумбу",
+		},
+		{
+			"selectValue": "tvWallSetup",
+			"selectOption" : "Установка ТВ на подвес", // #TODO: Установка на подвес - вопрос к яне в TRELLO
+		},
+		{
+			"selectValue": "thTableSetup",
+			"selectOption" : "Установка домашнего кинотеатра",
+		},
+		{
+			"selectValue": "thWallSetup",
+			"selectOption" : "Подвес домашнего кинотеатра",
+		},
+		{
+			"selectValue": "tvSmart",
+			"selectOption" : "Доработка SMART+",
+		}
+		],
+		"sateliteTv": [
+		{
+			"selectValue": "sateliteTvTest",
+			"selectOption" : "Тестирование спутникового сигнала",
+		},
+		{
+			"selectValue": "sateliteTvSetup",
+			"selectOption" : "Подключение спутниковой тарелки", 
+		}
+		],
+		"DT": [
+		{
+			"selectValue": "DT_ROUTER",
+			"selectOption" : "Подключение роутера",
+		},
+		{
+			"selectValue": "DT_HARDWARE",
+			"selectOption" : "Подключение переферийного устройства", 
+		},
+		{
+			"selectValue": "DT_SETUP",
+			"selectOption" : "Найстройка и оптимизация", 
+		},
+		{
+			"selectValue": "DT_OS",
+			"selectOption" : "Установка операционной системы", 
+		}
+		]
+
 	};
 
+	// Параметры дейсвтия 
+	//	[] - пустое без значений оставляет SELECT во всю форму
+
 	var btObjects = {
+		// Стиралка
 		"BT_WM": ["Встроенная","Соло"],
+		
+		//Холодильник
 		"BT_H": ["Встроенный","Соло","Side-By-Side"],
+		
+		// Плита
 		"BT_P": ["Встроенная","Соло"],
-		"SETUP": ["7000","9000","12000"],
-		"REMOVE": ["7000","9000","12000"],
-		"SERV": []
+
+		// Посудомойка
+		"BT_DW":["Встроенная","Соло"],
+
+		'BT_EO': [],
+		'BT_EPP': [],
+		'BT_D': [],
+		'BT_D_EP': [],
+		"BT_AIR": ["Купольная","Плоская","Встраиваемая"],
+		"BT_WATER": ["Проточный","Накопительный до 50 л.","Накопительный от 51 л."],
+		
+		// Кондиционер
+		"condSetup": ["7000","9000","12000"],
+		"condRemove": ["7000","9000","12000"],
+		"condServ": [],
+
+		// ТВ _ домашний кинотеатр
+		"tvTableSetup": ['Диагональ до 32"', 'Диагональ до 46"', 'Диагональ свыше 46"'],
+		"tvWallSetup": ['Диагональ до 32"', 'Диагональ до 46"', 'Диагональ свыше 46"'],
+		"thTableSetup": [],
+		"thWallSetup": [],
+		"tvSmart": [],
+
+		// Спутников
+		"sateliteTvTest": [],
+		"sateliteTvSetup": ["Диаметр до 0.79","Диаметр свыше 0.8"],
+
+		// Цифровая техника
+
+		"DT_ROUTER" : [],
+		"DT_HARDWARE" : [],
+		"DT_SETUP" : [],
+		"DT_OS" : []
+
+
 	}
 
-	var condObjects = {
-		
+	var firstOptionInSelectObjects = {
+		"bt" : ["А именно"],
+		"cond" : ["Установка / Демонтаж / Обслуживание "],
+		"tv" : ["Установка / Подвес / Домашний кинотеатр / SMART+ "],
+		"sateliteTv" : ["Тестирование сигнала / Подключение"],
+		"BT_AIR": ["Купольная / Плоская / Встраиваемая "],
+		"DT" : [" Роутер / Переферия / Оптимизация /  Операционная система "]
+
 	}
 
 	console.log(topLevelObjects);
@@ -136,7 +245,8 @@ window.onload = function () {
 		//console.log(selectOneChecked.value + ": " + selectOneChecked.text);
 
 		// #TODO: Переделать в одну функцию удаления слоя если он есть
-		
+		// Удаление полей слоя при перевыборе
+
 		if (document.querySelector(".js-secondBtDiv")) {
 			document.querySelector(".js-secondBtDiv").remove();
 		}
@@ -145,7 +255,7 @@ window.onload = function () {
 			document.querySelector(".js-firstBtDiv").remove();
 		}
 
-
+		// Заполняем вторую строку формы
 
 		var lineTwoDiv = document.querySelector(".lineTwo");
 
@@ -156,12 +266,26 @@ window.onload = function () {
 			if (bt) {
 				// Первый левый DIV в который обернем первый SELECT
 				var firstBtDiv = document.createElement("div");
+				
 				firstBtDiv.className = "small-8 column js-firstBtDiv js-cruwl";
 				lineTwoDiv.appendChild(firstBtDiv);
 
 				// Первый SELECT
 				var firstBtDiv_select = document.createElement("select");
+				
 				firstBtDiv_select.className = "my-select-two";
+				firstBtDiv_select.setAttribute("required", true);
+
+				// Подсказка первого OPTION в SELECT
+				var option = document.createElement("option");
+				option.value="";
+				option.text = firstOptionInSelectObjects[selectOneChecked][0];
+				option.setAttribute("disabled", true);
+				option.setAttribute("selected", true);
+				option.setAttribute("hidden",true);
+
+				firstBtDiv_select.appendChild(option);
+				
 				// #TODO: А вот как то можно передать не только функцию но и объекты, но функцию не выполнять (bt например).
 				firstBtDiv_select.onchange = selectTwoOnChange;
 				firstBtDiv.appendChild(firstBtDiv_select);
@@ -170,27 +294,25 @@ window.onload = function () {
 				for (var i = 0; i < bt.length; i++) {
 
 					var option = document.createElement("option");					
-					option.value = bt[i]["selectValue"];
-					option.text = bt[i]["selectOption"];
-					console.log("Option: " + bt[i]["selectOption"]);
+					
+					if (i===12) {
 
-					firstBtDiv_select.appendChild(option);
+						
+
+					}
+					else {
+
+						option.value = bt[i]["selectValue"];
+						option.text =  bt[i]["selectOption"];
+						console.log("Option: " + bt[i]["selectOption"]);
+
+						firstBtDiv_select.appendChild(option);
+					};
 
 				};
 			};
 
-		// 	// HIDE
-		// 	document.querySelector(".lineTwoC").style.display = "none";
-
-		// 	// SHOW
-		// 	document.querySelector(".lineTwoBT").style.display = "flex";
-
-
-
-
-
-
-	};
+		};
 
 	// my-select-two onChange Function
 
@@ -218,10 +340,27 @@ window.onload = function () {
 			var secondBtDiv_select = document.createElement("select");
 
 			secondBtDiv_select.className = "my-select-three";
+			secondBtDiv_select.setAttribute("required","true");
 			firstBtDiv.className = "small-4 column js-firstBtDiv js-cruwl";
 			secondBtDiv.className = "small-4 column js-secondBtDiv js-cruwl";
 			lineTwoDiv.appendChild(secondBtDiv);
 			secondBtDiv.appendChild(secondBtDiv_select);
+
+			// Подсказка OPTION в SELECT
+
+			if (firstOptionInSelectObjects[selectTwoChecked]) {
+
+				
+
+				var option = document.createElement("option");
+				option.value="";
+				option.text = firstOptionInSelectObjects[selectTwoChecked][0];
+				option.setAttribute("disabled", true);
+				option.setAttribute("selected", true);
+				option.setAttribute("hidden",true);
+
+				secondBtDiv_select.appendChild(option);
+			};
 
 
 			for (var i = 0; i < btAddOptions.length; i++) {
@@ -257,7 +396,7 @@ window.onload = function () {
 			}
 
 			return text;
-		
+
 		})();
 
 		console.log(textToSend);
