@@ -1,11 +1,13 @@
 $(document).foundation();
 
-Foundation.Abide.defaults.patterns['fr_tel'] = /[+]7\s[(]\d\d\d[)]\s\d\d\d\s\d\d\s\d\d/;
+Foundation.Abide.defaults.patterns[
+	"fr_tel"
+] = /[+]7\s[(]\d\d\d[)]\s\d\d\d\s\d\d\s\d\d/;
 
-$(document)	
-.on("invalid.zf.abide", function(ev, elem) {
-	console.log("Field id " + ev.target.id + " is invalid");
-})
+$(document)
+	.on("invalid.zf.abide", function(ev, elem) {
+		console.log("Field id " + ev.target.id + " is invalid");
+	})
 	// field element is valid
 	.on("valid.zf.abide", function(ev, elem) {
 		console.log("Field name " + elem.attr("name") + " is valid");
@@ -39,67 +41,67 @@ window.onload = function() {
 	// #TODO: Не забыть удалить addoptions. В итоге такая реализация объекта не помогла. Addoptions переезжают в свой собственный объект поиск будет по ключу selectValue
 	var topLevelObjects = {
 		bt: [
-		{
-			selectValue: "BT_WM",
-			selectOption: "Стиральная машина"
-		},
+			{
+				selectValue: "BT_WM",
+				selectOption: "Стиральная машина"
+			},
 
-		{
-			selectValue: "BT_DW",
-			selectOption: "Посудомоечная машина"
-		},
-		{
-			selectValue: "BT_H",
-			selectOption: "Холодильник"
-		},
-		{
-			selectValue: "BT_EO",
-			selectOption: "Электрическая плита"
-		},
-		{
-			selectValue: "BT_EPP",
-			selectOption: "Электрическая панель"
-		},
-		{
-			selectValue: "BT_D",
-			selectOption: "Духовой шкаф (независимый)"
-		},
-		{
-			selectValue: "BT_D_EP",
-			selectOption: "Зависимые электрическая панель и духовой шкаф"
-		},
-		{
-			selectValue: "BT_AIR",
-			selectOption: "Вытяжка"
-		},
-		{
-			selectValue: "BT_WATER",
-			selectOption: "Водонагреватель"
-		}
+			{
+				selectValue: "BT_DW",
+				selectOption: "Посудомоечная машина"
+			},
+			{
+				selectValue: "BT_H",
+				selectOption: "Холодильник"
+			},
+			{
+				selectValue: "BT_EO",
+				selectOption: "Электрическая плита"
+			},
+			{
+				selectValue: "BT_EPP",
+				selectOption: "Электрическая панель"
+			},
+			{
+				selectValue: "BT_D",
+				selectOption: "Духовой шкаф (независимый)"
+			},
+			{
+				selectValue: "BT_D_EP",
+				selectOption: "Зависимые электрическая панель и духовой шкаф"
+			},
+			{
+				selectValue: "BT_AIR",
+				selectOption: "Вытяжка"
+			},
+			{
+				selectValue: "BT_WATER",
+				selectOption: "Водонагреватель"
+			}
 		],
 
 		cond: [
-		{
-			selectValue: "condSetup",
-			selectOption: "Установка"
-		},
-		{
-			selectValue: "condRemove",
-			selectOption: "Демонтаж"
-		},
-		{
-			selectValue: "condServ",
-			selectOption: "Обслуживание"
-		}
+			{
+				selectValue: "condSetup",
+				selectOption: "Установка"
+			},
+			{
+				selectValue: "condRemove",
+				selectOption: "Демонтаж"
+			},
+			{
+				selectValue: "condServ",
+				selectOption: "Обслуживание"
+			}
 		],
 
 		tv: [
-		{
-			selectValue: "tvTableSetup",
-			selectOption: "Установка ТВ на тумбу"
-		},
-		{
-			selectValue: "tvWallSetup",
+			{
+				selectValue: "tvTableSetup",
+				selectOption: "Установка ТВ на тумбу"
+			},
+			{
+				selectValue: "tvWallSetup",
 				selectOption: "Установка ТВ на подвес" // #TODO: Установка на подвес - вопрос к яне в TRELLO
 			},
 			{
@@ -114,8 +116,8 @@ window.onload = function() {
 				selectValue: "tvSmart",
 				selectOption: "Доработка SMART+"
 			}
-			],
-			sateliteTv: [
+		],
+		sateliteTv: [
 			{
 				selectValue: "sateliteTvTest",
 				selectOption: "Тестирование спутникового сигнала"
@@ -124,8 +126,8 @@ window.onload = function() {
 				selectValue: "sateliteTvSetup",
 				selectOption: "Подключение спутниковой тарелки"
 			}
-			],
-			DT: [
+		],
+		DT: [
 			{
 				selectValue: "DT_ROUTER",
 				selectOption: "Подключение роутера"
@@ -142,8 +144,8 @@ window.onload = function() {
 				selectValue: "DT_OS",
 				selectOption: "Установка операционной системы"
 			}
-			]
-		};
+		]
+	};
 
 	// Параметры дейсвтия
 	//	[] - пустое без значений оставляет SELECT во всю форму
@@ -167,9 +169,9 @@ window.onload = function() {
 		BT_D_EP: [],
 		BT_AIR: ["Купольная", "Плоская", "Встраиваемая"],
 		BT_WATER: [
-		"Проточный",
-		"Накопительный до 50 л.",
-		"Накопительный от 51 л."
+			"Проточный",
+			"Накопительный до 50 л.",
+			"Накопительный от 51 л."
 		],
 
 		// Кондиционер
@@ -179,14 +181,14 @@ window.onload = function() {
 
 		// ТВ _ домашний кинотеатр
 		tvTableSetup: [
-		'Диагональ до 32"',
-		'Диагональ до 46"',
-		'Диагональ свыше 46"'
+			'Диагональ до 32"',
+			'Диагональ до 46"',
+			'Диагональ свыше 46"'
 		],
 		tvWallSetup: [
-		'Диагональ до 32"',
-		'Диагональ до 46"',
-		'Диагональ свыше 46"'
+			'Диагональ до 32"',
+			'Диагональ до 46"',
+			'Диагональ свыше 46"'
 		],
 		thTableSetup: [],
 		thWallSetup: [],
@@ -218,14 +220,14 @@ window.onload = function() {
 			standartText: "Подключение производится к уже имеющимся у Вас коммуникациям, без их доработки.",
 			vipText: "Производится установка и подключение техники, а так же доработка  точек водоснабжения, электроснабжения и системы слива.",
 			standartOptions: [
-			"Доработка электросети | +700 руб.",
-			"Доработка водоснабжения | +800 руб.",
-			"Доработка слива | +900 руб."
+				"Доработка электросети",
+				"Доработка водоснабжения",
+				"Доработка слива"
 			],
 			vipOptions: [
-			"Доработка электросети | включено",
-			"Доработка водоснабжения | включено",
-			"Доработка слива | включено"
+				"Доработка электросети | включено",
+				"Доработка водоснабжения | включено",
+				"Доработка слива | включено"
 			],
 			standartWorks: "<li> Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li> Распаковка и визуальная проверка техники</li><li> Консультация по вопросам эксплуатации</li><li> Проверка исправности и готовности к подключению к точкам водоснабжения, электросети и системы слива</li><li> Снятие транспортных креплений</li><li> Перфорация стен (мебельных перегородок) для прокладки коммуникаций</li><li> Встраивание техники в мебель на место эксплуатации и выставление по уровню в разных плоскостях </li><li>  Подключение к существующим точкам водо- и электроснабжения с учетом особенностей техники и требований техники безопасности</li><li> Подключение стационарного слива, при необходимости установка манжетки или червячного хомута</li><li> Проверка герметичности всех соединений</li><li> Проверка работоспособности техники</li><li> Очистка рабочей зоны</li><li> Демонстрация работы Вашей новой техники и объяснение основных функций</li><p>Материалы, входящие в стоимость Купона:<ul>Хомут червячный или муфта.</ul></p><p>В стоимость подключения не входит: <ul><li>выравнивание пола</li><li>работы по изменению конфигурации шкафов  или рабочих поверхностей</li><li>навеска фасада на технику</li></ul></p>",
 			vipWorks: '<li> Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li> Распаковка и визуальная проверка техники</li><li> Проверка исправности и готовности к подключению водоснабэению, электросети и системы слива.</li><li> Снятие транспортных креплений</li><li> <mark>Установка техники на место эксплуатации и выставление по уровню в разных плоскостях </mark></li><li> <mark>Доработка сети электроснабжения: установка розетки с заземляющим контактом; Перфорация стен или перегородок для прокладки коммуникаций; Прокладка электрического кабеля открытым способом (до 5 м.); монтажные работы в электрощитке.</mark></li><li> Доработка системы водоснабжения: Перфорация стен (перегородок) для прокладки коммуникаций; монтаж водопроводного крана в водосеть клиента; замена/сращивание/ удлинение наливного, шланга (до 4 м.), гибкой подводки</li><li> Доработка системы канализации: замена/сращивание/удлинение, сливного шланга ( до 1 м.); организация стационарного слива</li><li> Подключение к точкам водо-, электроснабжения и системе канализации, с учетом требований производителя техники и «Правил техники безопасности»</li><li> Проверка герметичности всех соединений</li><li> Проверка работоспособности техники.</li><li> Очистка рабочей зоны </li><li> Демонстрация работы Вашей новой техники и объяснение основных функций</li><p>Материалы, входящие в стоимость Купона: Розетка "евростандарт" 16 А. для открытой проводки; вилка "евростандарт" 16 А. (разборная); автомат 16 А. / 2п. (отеч.); коробка под автомат; провод ПВС  3*1,5 мм. (белый); провод МПВ 4.0 мм (белый); крепежные изделия пластиковые зажимы для кабеля 7-8 мм; сливной шланг до 1 м.; концевик на модульный сливной шланг; крепежные хомуты "Norma","ABA" 17-28 мм.; сифон с отводом для подключения СМА и ПММ; гибкий гофрированный выпуск к сифону; патрубок прямой - d.40 (d.50) мм.;  ниппель для сращивания сливных шлангов d.19/d.21 мм. (пласт.); муфта резиновая d.50*d.73 мм.; шланг наливной пластиковый (Италия) до 4 м; подводка гибкая бронированная на воду; кран; водоотвод латунный (в сборе); тройник; переходник; муфта, бочонок.</p><p>В стоимость подключения не входит:<ul><li>выравнивание пола</li><li>работы по изменению конфигурации шкафов  или рабочих поверхностей.</li></ul></p>'
@@ -235,14 +237,14 @@ window.onload = function() {
 			standartText: "Подключение производится к уже имеющимся у Вас коммуникациям, без их доработки.",
 			vipText: "Производится установка и подключение техники, а так же доработка  точек водоснабжения, электроснабжения и системы слива.",
 			standartOptions: [
-			"Доработка слива | 200 | ",
-			"Доработка водоснабжения | 300",
-			"Доработка электросети | 400"
+				"Доработка слива",
+				"Доработка водоснабжения",
+				"Доработка электросети"
 			],
 			vipOptions: [
-			"Доработка слива |  включено",
-			"Доработка водоснабжения | включено",
-			"Доработка электросети | включено"
+				"Доработка слива |  включено",
+				"Доработка водоснабжения | включено",
+				"Доработка электросети | включено"
 			],
 			standartWorks: "<li>Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс<li>листу на дополнительные работы)</li><li>Распаковка и визуальная проверка техники</li><li>Проверка исправности и готовности к подключению к точкам водоснабжения, электросети и системы слива</li><li>Снятие транспортных креплений</li><li>Установка машины на место эксплуатации и выставление по уровню в разных плоскостях </li><li>Подключение к существующим точкам водо<li> и электроснабжения с учетом особенностей техники и требований техники безопасности</li><li>Подключение стационарного слива, при необходимости установка манжетки или червячного хомута</li><li>Проверка герметичности всех соединений</li><li>Проверка работоспособности товара</li><li>Очистка рабочей зоны </li><li>Демонстрация работы  новой техники и объяснение основных функций</li><br>В стоимость стандартного подключения не входит: <br><li>выравнивание пола </li><li>удлинение шнуров питания</li><li>отключение и демонтаж старой техники</li><li>встраивание техники в мебель</li><li>работы по изменению конфигурации шкафов или рабочих поверхностей</li>",
 			vipWorks: '<li> Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li> Распаковка и визуальная проверка техники</li><li> Проверка исправности и готовности к подключению водоснабэению, электросети и системы слива.</li><li> Снятие транспортных креплений</li><li> Установка техники на место эксплуатации и выставление по уровню в разных плоскостях </li><li> Доработка сети электроснабжения: установка розетки с заземляющим контактом; Перфорация стен или перегородок для прокладки коммуникаций; Прокладка электрического кабеля открытым способом (до 5 м.); монтажные работы в электрощитке.</li><li> Доработка системы водоснабжения: Перфорация стен (перегородок) для прокладки коммуникаций; монтаж водопроводного крана в водосеть клиента; замена/сращивание/ удлинение наливного, шланга (до 4 м.), гибкой подводки</li><li> Доработка системы канализации: замена/сращивание/удлинение, сливного шланга ( до 1 м.); организация стационарного слива</li><li> Подключение к точкам водо-, электроснабжения и системе канализации, с учетом требований производителя техники и «Правил техники безопасности»</li><li> Проверка герметичности всех соединений</li><li> Проверка работоспособности техники.</li><li> Очистка рабочей зоны </li><li> Демонстрация работы Вашей новой техники и объяснение основных функций</li><p>Материалы, входящие в стоимость Купона: Розетка "евростандарт" 16 А. для открытой проводки; вилка "евростандарт" 16 А. (разборная); автомат 16 А. / 2п. (отеч.); коробка под автомат; провод ПВС  3*1,5 мм. (белый); провод МПВ 4.0 мм (белый); крепежные изделия пластиковые зажимы для кабеля 7-8 мм; сливной шланг до 1 м.; концевик на модульный сливной шланг; крепежные хомуты "Norma","ABA" 17-28 мм.; сифон с отводом для подключения СМА и ПММ; гибкий гофрированный выпуск к сифону; патрубок прямой - d.40 (d.50) мм.;  ниппель для сращивания сливных шлангов d.19/d.21 мм. (пласт.); муфта резиновая d.50*d.73 мм.; шланг наливной пластиковый (Италия) до 4 м; подводка гибкая бронированная на воду; кран; водоотвод латунный (в сборе); тройник; переходник; муфта, бочонок.</p><p>В стоимость подключения не входит:<ul><li>выравнивание пола</li><li>работы по изменению конфигурации шкафов  или рабочих поверхностей.</li></ul></p>'
@@ -252,14 +254,14 @@ window.onload = function() {
 			standartText: "Подключение производится к уже имеющимся у Вас коммуникациям, без их доработки.",
 			vipText: "Производится установка и подключение техники, а так же доработка  точек водоснабжения, электроснабжения и системы слива.",
 			standartOptions: [
-			"Доработка электросети | 700",
-			"Доработка водоснабжения | 800",
-			"Доработка слива | 900"
+				"Доработка электросети",
+				"Доработка водоснабжения",
+				"Доработка слива"
 			],
 			vipOptions: [
-			"Доработка электросети | включено",
-			"Доработка водоснабжения | включено",
-			"Доработка слива | включено"
+				"Доработка электросети | включено",
+				"Доработка водоснабжения | включено",
+				"Доработка слива | включено"
 			],
 			standartWorks: "<li> Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li> Распаковка и визуальная проверка техники</li><li> Консультация по вопросам эксплуатации</li><li> Проверка исправности и готовности к подключению к точкам водоснабжения, электросети и системы слива</li><li> Снятие транспортных креплений</li><li> Перфорация стен (мебельных перегородок) для прокладки коммуникаций</li><li> Встраивание техники в мебель на место эксплуатации и выставление по уровню в разных плоскостях </li><li>  Подключение к существующим точкам водо- и электроснабжения с учетом особенностей техники и требований техники безопасности</li><li> Подключение стационарного слива, при необходимости установка манжетки или червячного хомута</li><li> Проверка герметичности всех соединений</li><li> Проверка работоспособности техники</li><li> Очистка рабочей зоны</li><li> Демонстрация работы Вашей новой техники и объяснение основных функций</li><p>Материалы, входящие в стоимость Купона:<ul>Хомут червячный или муфта.</ul></p><p>В стоимость подключения не входит: <ul><li>выравнивание пола</li><li>работы по изменению конфигурации шкафов  или рабочих поверхностей</li><li>навеска фасада на технику</li></ul></p>",
 			vipWorks: '<li> Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li> Распаковка и визуальная проверка техники</li><li> Проверка исправности и готовности к подключению водоснабэению, электросети и системы слива.</li><li> Снятие транспортных креплений</li><li> Установка техники на место эксплуатации и выставление по уровню в разных плоскостях </li><li> Доработка сети электроснабжения: установка розетки с заземляющим контактом; Перфорация стен или перегородок для прокладки коммуникаций; Прокладка электрического кабеля открытым способом (до 5 м.); монтажные работы в электрощитке.</li><li> Доработка системы водоснабжения: Перфорация стен (перегородок) для прокладки коммуникаций; монтаж водопроводного крана в водосеть клиента; замена/сращивание/ удлинение наливного, шланга (до 4 м.), гибкой подводки</li><li> Доработка системы канализации: замена/сращивание/удлинение, сливного шланга ( до 1 м.); организация стационарного слива</li><li> Подключение к точкам водо-, электроснабжения и системе канализации, с учетом требований производителя техники и «Правил техники безопасности»</li><li> Проверка герметичности всех соединений</li><li> Проверка работоспособности техники.</li><li> Очистка рабочей зоны </li><li> Демонстрация работы Вашей новой техники и объяснение основных функций</li><p>Материалы, входящие в стоимость Купона: Розетка "евростандарт" 16 А. для открытой проводки; вилка "евростандарт" 16 А. (разборная); автомат 16 А. / 2п. (отеч.); коробка под автомат; провод ПВС  3*1,5 мм. (белый); провод МПВ 4.0 мм (белый); крепежные изделия пластиковые зажимы для кабеля 7-8 мм; сливной шланг до 1 м.; концевик на модульный сливной шланг; крепежные хомуты "Norma","ABA" 17-28 мм.; сифон с отводом для подключения СМА и ПММ; гибкий гофрированный выпуск к сифону; патрубок прямой - d.40 (d.50) мм.;  ниппель для сращивания сливных шлангов d.19/d.21 мм. (пласт.); муфта резиновая d.50*d.73 мм.; шланг наливной пластиковый (Италия) до 4 м; подводка гибкая бронированная на воду; кран; водоотвод латунный (в сборе); тройник; переходник; муфта, бочонок.</p><p>В стоимость подключения не входит:<ul><li>выравнивание пола</li><li>работы по изменению конфигурации шкафов  или рабочих поверхностей.</li></ul></p>'
@@ -269,26 +271,83 @@ window.onload = function() {
 			standartText: "Подключение производится к уже имеющимся у Вас коммуникациям, без их доработки.",
 			vipText: "Производится установка и подключение техники, а так же доработка  точек водоснабжения, электроснабжения и системы слива.",
 			standartOptions: [
-			"Доработка слива | 200",
-			"Доработка водоснабжения | 300",
-			"Доработка электросети | 400"
+				"Доработка слива",
+				"Доработка водоснабжения",
+				"Доработка электросети"
 			],
 			vipOptions: [
-			"Доработка слива |  включено",
-			"Доработка водоснабжения | включено",
-			"Доработка электросети | включено"
+				"Доработка слива |  включено",
+				"Доработка водоснабжения | включено",
+				"Доработка электросети | включено"
 			],
 			standartWorks: "<li>Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс<li>листу на дополнительные работы)</li><li>Распаковка и визуальная проверка техники</li><li>Проверка исправности и готовности к подключению к точкам водоснабжения, электросети и системы слива</li><li>Снятие транспортных креплений</li><li>Установка машины на место эксплуатации и выставление по уровню в разных плоскостях </li><li>Подключение к существующим точкам водо<li> и электроснабжения с учетом особенностей техники и требований техники безопасности</li><li>Подключение стационарного слива, при необходимости установка манжетки или червячного хомута</li><li>Проверка герметичности всех соединений</li><li>Проверка работоспособности товара</li><li>Очистка рабочей зоны </li><li>Демонстрация работы  новой техники и объяснение основных функций</li><br>В стоимость стандартного подключения не входит: <br><li>выравнивание пола </li><li>удлинение шнуров питания</li><li>отключение и демонтаж старой техники</li><li>встраивание техники в мебель</li><li>работы по изменению конфигурации шкафов или рабочих поверхностей</li>",
 			vipWorks: '<li> Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li> Распаковка и визуальная проверка техники</li><li> Проверка исправности и готовности к подключению водоснабэению, электросети и системы слива.</li><li> Снятие транспортных креплений</li><li> Установка техники на место эксплуатации и выставление по уровню в разных плоскостях </li><li> Доработка сети электроснабжения: установка розетки с заземляющим контактом; Перфорация стен или перегородок для прокладки коммуникаций; Прокладка электрического кабеля открытым способом (до 5 м.); монтажные работы в электрощитке.</li><li> Доработка системы водоснабжения: Перфорация стен (перегородок) для прокладки коммуникаций; монтаж водопроводного крана в водосеть клиента; замена/сращивание/ удлинение наливного, шланга (до 4 м.), гибкой подводки</li><li> Доработка системы канализации: замена/сращивание/удлинение, сливного шланга ( до 1 м.); организация стационарного слива</li><li> Подключение к точкам водо-, электроснабжения и системе канализации, с учетом требований производителя техники и «Правил техники безопасности»</li><li> Проверка герметичности всех соединений</li><li> Проверка работоспособности техники.</li><li> Очистка рабочей зоны </li><li> Демонстрация работы Вашей новой техники и объяснение основных функций</li><p>Материалы, входящие в стоимость Купона: Розетка "евростандарт" 16 А. для открытой проводки; вилка "евростандарт" 16 А. (разборная); автомат 16 А. / 2п. (отеч.); коробка под автомат; провод ПВС  3*1,5 мм. (белый); провод МПВ 4.0 мм (белый); крепежные изделия пластиковые зажимы для кабеля 7-8 мм; сливной шланг до 1 м.; концевик на модульный сливной шланг; крепежные хомуты "Norma","ABA" 17-28 мм.; сифон с отводом для подключения СМА и ПММ; гибкий гофрированный выпуск к сифону; патрубок прямой - d.40 (d.50) мм.;  ниппель для сращивания сливных шлангов d.19/d.21 мм. (пласт.); муфта резиновая d.50*d.73 мм.; шланг наливной пластиковый (Италия) до 4 м; подводка гибкая бронированная на воду; кран; водоотвод латунный (в сборе); тройник; переходник; муфта, бочонок.</p><p>В стоимость подключения не входит:<ul><li>выравнивание пола</li><li>работы по изменению конфигурации шкафов  или рабочих поверхностей.</li></ul></p>'
+		},
+
+		btBT_HСоло: {
+			standartText: "Подключение производится к уже имеющимся у Вас коммуникациям, без их доработки.",
+			vipText: "",
+			standartOptions: [
+				"Перенавес дверей холодильника с электронным табло | +200 руб."
+			],
+			vipOptions: [],
+			standartWorks: "<li>Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li>Распаковка и визуальная проверка техники</li><li>Консультация по вопросам эксплуатации</li><li>Проверка исправности и готовности подключения к электросети</li><li>Установка на место дальнейшей эксплуатации</li><li>Выставление по уровню</li><li>Подключение к существующей точке электроснабжения, без доработки</li><li>Проверка работоспособности техники</li><li>Очистка рабочей зоны и уборка мусора, оставшегося после установки</li><li>Демонстрация работы Вашей новой техники и объяснение основных функций</li><p><h6>В стоимость подключения не входит: </h6><ul><li>подключение холодильника к воде</li><li>доработка коммуникаций</li><li>перенавес дверей</li></ul></p>",
+			vipWorks: ""
+		},
+
+		btBT_HВстроенный: {
+			standartText: "Подключение производится к уже имеющимся у Вас коммуникациям, без их доработки.",
+			vipText: "",
+			standartOptions: [
+				"Перенавес дверей холодильника с электронным табло | +200 руб."
+			],
+			vipOptions: [],
+			standartWorks: "<li>Выезд специалиста по городу (выезд мастера за пределы города оплачивается по действующему прайс-листу на дополнительные работы)</li><li>Распаковка и визуальная проверка техники</li><li>Консультация по вопросам эксплуатации</li><li>Проверка исправности и готовности  подключения к электросети</li><li>Встраивание техники в мебель</li><li>Выставление по уровню</li><li>Подключение к существующей точке электроснабжения, без доработки</li><li>Проверка работоспособности техники</li><li>Очистка рабочей зоны </li><li>Демонстрация работы Вашей новой техники и объяснение основных функций</li><p><h6>В стоимость подключения не входит: </h6><ul><li>доработка мебели для встраивания техники</li><li>навеска фасада на технику</li><li>подключение холодильника к воде</li></ul></p>",
+			vipWorks: ""
 		}
 	};
 
 	var pricesObject = {
-		btBT_WMВстроенная: ["1000", "1500"],
-		btBT_WMСоло: ["500", "1000"],
-		btBT_DWВстроенная: ["1100", "2500"],
-		btBT_DWСоло: ["900", "1800"]
+		Aprelevka: {
+			
+			btBT_WMВстроенная: ["1000", "2700"],
+			btBT_WMВстроеннаяOptions: ["+200 руб.","+500 руб.","+1000 руб."],
+			
+			btBT_WMСоло: ["500", "1000"],
+			btBT_WMСолоOptions: ["+200 руб.","+500 руб.","+1000 руб."],
+			
+			btBT_DWВстроенная: ["1100", "2500"],
+			btBT_DWВстроеннаяOptions: ["+200 руб.","+500 руб.","+1000 руб."],
+			
+			btBT_DWСоло: ["900", "1800"],
+			btBT_DWСолоOptions: ["+200 руб.","+500 руб.","+1000 руб."],
+			
+			btBT_HСоло: ["900"],
+			btBT_HСолоOptions: ["+900 руб."],
+			
+			btBT_HВстроенный: ["900"],
+			btBT_HВстроенныйOptions: ["+900 руб."]
+		},
+		Moskva: {
+			btBT_WMВстроенная: ["100", "150"],
+			btBT_WMСоло: ["50", "100"],
+			btBT_DWВстроенная: ["110", "250"],
+			btBT_DWСоло: ["90", "180"]
+		},
+		YOla: {
+			btBT_WMВстроенная: ["1000", "1500"],
+			btBT_WMСоло: ["500", "1000"],
+			btBT_DWВстроенная: ["1100", "2500"],
+			btBT_DWСоло: ["900", "1800"]
+		}
 	};
+
+	// var pricesObject = {
+	// 	btBT_WMВстроенная: ["1000", "1500"],
+	// 	btBT_WMСоло: ["500", "1000"],
+	// 	btBT_DWВстроенная: ["1100", "2500"],
+	// 	btBT_DWСоло: ["900", "1800"]
+	// };
 
 	// console.log(topLevelObjects);
 
@@ -304,10 +363,10 @@ window.onload = function() {
 		onSelect: function(suggestion) {
 			// // console.log(suggestion);
 			document.querySelector(".my-a-choose").innerHTML =
-			suggestion.data.city;
+				suggestion.data.city;
 			$(".reveal").foundation("close");
 			document.querySelector("#geoDownInput").value =
-			suggestion.data.city;
+				suggestion.data.city;
 		}
 	});
 
@@ -343,30 +402,30 @@ window.onload = function() {
 
 	function mapInit() {
 		ymaps.geolocation
-		.get({
-			provider: "yandex",
-			autoReverseGeocode: true
-		})
-		.then(function(result) {
-			var tmp = result.geoObjects
-			.get(0)
-			.properties.get("metaDataProperty").GeocoderMetaData.Address
-			.Components.length;
-			document.querySelector(
-				".my-a-choose"
+			.get({
+				provider: "yandex",
+				autoReverseGeocode: true
+			})
+			.then(function(result) {
+				var tmp = result.geoObjects
+					.get(0)
+					.properties.get("metaDataProperty").GeocoderMetaData.Address
+					.Components.length;
+				document.querySelector(
+					".my-a-choose"
 				).innerHTML += result.geoObjects
-			.get(0)
-			.properties.get(
-				"metaDataProperty"
-				).GeocoderMetaData.Address.Components[tmp - 1].name;
-			document.querySelector(
-				"#geoDownInput"
+					.get(0)
+					.properties.get(
+						"metaDataProperty"
+					).GeocoderMetaData.Address.Components[tmp - 1].name;
+				document.querySelector(
+					"#geoDownInput"
 				).value = result.geoObjects
-			.get(0)
-			.properties.get(
-				"metaDataProperty"
-				).GeocoderMetaData.Address.Components[tmp - 1].name;
-		});
+					.get(0)
+					.properties.get(
+						"metaDataProperty"
+					).GeocoderMetaData.Address.Components[tmp - 1].name;
+			});
 	}
 
 	// 	// GEO TEST DADA
@@ -389,7 +448,7 @@ window.onload = function() {
 	document.querySelector(".my-select-one").onchange = function() {
 		var selectOneChecked = document.querySelector(
 			".my-select-one option:checked"
-			).value;
+		).value;
 		//// console.log(selectOneChecked.value + ": " + selectOneChecked.text);
 
 		// #TODO: Переделать в одну функцию удаления слоя если он есть
@@ -452,10 +511,8 @@ window.onload = function() {
 
 					firstBtDiv_select.appendChild(option);
 				}
-
 			}
 		}
-
 	};
 
 	// my-select-two onChange Function
@@ -470,7 +527,7 @@ window.onload = function() {
 
 		var selectTwoChecked = document.querySelector(
 			".my-select-two option:checked"
-			).value;
+		).value;
 
 		// console.log(selectTwoChecked);
 
@@ -512,7 +569,7 @@ window.onload = function() {
 			}
 		} else {
 			document.querySelector(".js-firstBtDiv").className =
-			"small-8 column js-firstBtDiv js-cruwl";
+				"small-8 column js-firstBtDiv js-cruwl";
 		}
 	}
 
@@ -520,14 +577,14 @@ window.onload = function() {
 
 	document.querySelector(".my-back-button").onclick = function() {
 		var idToCleanArr = [
-		"#standartLi",
-		"#vipLi",
-		"#standartText",
-		"#vipText",
-		"#vipPrice",
-		"#normalPrice",
-		"#vipWorks",
-		"#standartWorksToggleUl"
+			"#standartLi",
+			"#vipLi",
+			"#standartText",
+			"#vipText",
+			"#vipPrice",
+			"#normalPrice",
+			"#vipWorks",
+			"#standartWorksToggleUl"
 		];
 
 		for (var i = 0; i < idToCleanArr.length; i++) {
@@ -536,7 +593,6 @@ window.onload = function() {
 				document.querySelector(idToCleanArr[i]).innerHTML = "";
 			}
 		}
-
 	};
 
 	// FORM NEXT BUTTON
@@ -550,17 +606,16 @@ window.onload = function() {
 		var b = plugin.validateInput($(".my-select-two"));
 		var c = plugin.validateInput($(".my-select-three"));
 		var d = plugin.validateInput($("#geoDownInput"));
-		
 
 		// Проверяем на валидность все поля первого экрана
 		if (a * b * c * d * e) {
 			var arrayToggle = [
-			"#standartWorksToggleUl",
-			"#my-form-center-page1",
-			"#my-form-center-page2",
-			"#my-back-button",
-			"#my-next-button",
-			"#my-send-button"
+				"#standartWorksToggleUl",
+				"#my-form-center-page1",
+				"#my-form-center-page2",
+				"#my-back-button",
+				"#my-next-button",
+				"#my-send-button"
 			];
 
 			arrayToggle.forEach(function(element, index) {
@@ -571,7 +626,7 @@ window.onload = function() {
 			var textToSend = (function() {
 				var allJsCruwl = document.querySelectorAll(
 					".js-cruwl option:checked"
-					);
+				);
 				var text = "";
 
 				for (var i = 0; i < allJsCruwl.length; i++) {
@@ -581,127 +636,144 @@ window.onload = function() {
 				return text;
 			})();
 
-		// // console.log(textToSend);
+			console.log(textToSend);
 
-		var normalPrice = pricesObject[textToSend][0] || 0;
-		var vipPrice = pricesObject[textToSend][1] || 0;
+			if (
+				$("#geoDownInput")[0].value === "Апрелевка" ||
+				$("#geoDownInput")[0].value === "г Апрелевка"
+			) {
+				var normalPrice = pricesObject["Aprelevka"][textToSend][0] || 0;
+				var vipPrice = pricesObject["Aprelevka"][textToSend][1] || 0;
+			}
 
-		// LINK TEMPLATE на перечень работ
-		var templateLinkWorks = "";
+			if (
+				$("#geoDownInput")[0].value === "Москва" ||
+				$("#geoDownInput")[0].value === "г Москва"
+			) {
+				var normalPrice = pricesObject["Moskva"][textToSend][0] || 0;
+				var vipPrice = pricesObject["Moskva"][textToSend][1] || 0;
+			}
 
-		var standartText = productObject[textToSend]["standartText"] || 0;
-		var standartOptions = productObject[textToSend]["standartOptions"] || 0;
-		var standartWorks = productObject[textToSend]["standartWorks"] || 0;
+			// LINK TEMPLATE на перечень работ
+			var templateLinkWorks = "";
 
-		document.querySelector("#normalPrice").innerHTML = normalPrice;
-		document.querySelector("#standartText").innerHTML = standartText;
-		document.querySelector(
-			"#standartWorksToggleUl"
+			var standartText = productObject[textToSend]["standartText"] || 0;
+			var standartOptions =
+				productObject[textToSend]["standartOptions"] || 0;
+			var standartWorks = productObject[textToSend]["standartWorks"] || 0;
+
+
+			document.querySelector("#normalPrice").innerHTML = normalPrice;
+			document.querySelector("#standartText").innerHTML = standartText;
+			document.querySelector(
+				"#standartWorksToggleUl"
 			).innerHTML = standartWorks;
 
-		// Генерим LI от StandartOptions
+			// Генерим LI от StandartOptions
 
-		console.log(standartOptions[0].split("|")[0]);
+			console.log(standartOptions[0].split("|")[0]);
 
-		if (standartOptions) {
-			for (var i = 0; i < standartOptions.length; i++) {
-				var standartLi = document.createElement("li");
-				var optionList = standartOptions[i].split("|");
-				standartLi.innerHTML =
-				"<div class='row'><div class='small-7 column'><input value='" +
-				optionList[0] +
-				"' id='standartCheckbox" +
-				i +
-				"' type='checkbox'>" +
-				"<label for='standartCheckbox" +
-				i +
-				"'>" +
-				optionList[0] +
-				"</label></div>" +
-				"<div class='small-3 column'><span id='standartCheckboxValue" +
-				i +
-				"'>" +
-				optionList[1] +
-				"</span></div></div>";
-				document.querySelector("#standartLi").appendChild(standartLi);
+			if (standartOptions) {
+				for (var i = 0; i < standartOptions.length; i++) {
+					var standartLi = document.createElement("li");
+					var optionList = standartOptions[i].split("|");
+					var optionPrice = textToSend+"Options";
+					standartLi.innerHTML =
+						"<div class='row'><div class='small-1 column'><input value='" +
+						optionList[0] +
+						"' id='standartCheckbox" +
+						i +
+						"' type='checkbox'></div><div class='small-7 column'>" +
+						"<label for='standartCheckbox" +
+						i +
+						"'>" +
+						optionList[0] +
+						"</label></div>" +
+						"<div class='small-3 column'><span id='standartCheckboxValue" +
+						i +
+						"'>" +
+						pricesObject["Aprelevka"][optionPrice][i] +
+						"</span></div></div>";
+					document
+						.querySelector("#standartLi")
+						.appendChild(standartLi);
 
-				var myValue = "#standartCheckboxValue" + i;
+					var myValue = "#standartCheckboxValue" + i;
 
-				// ЭТО ЧО ХОТЬ ТАКОЕ ТО! почему так работает, понятно что замыкания но как именно ?
-				(function(num, price) {
-					document.querySelector(
-						"#standartCheckbox" + i
+					// ЭТО ЧО ХОТЬ ТАКОЕ ТО! почему так работает, понятно что замыкания но как именно ?
+					(function(num, price) {
+						document.querySelector(
+							"#standartCheckbox" + i
 						).onclick = function() {
-						if (!this.checked) {
-							var oldprice = document.querySelector(
-								"#normalPrice"
+							if (!this.checked) {
+								var oldprice = document.querySelector(
+									"#normalPrice"
 								).innerHTML;
-							var newprice = parseInt(oldprice) - parseInt(price);
-							document.querySelector(
-								"#normalPrice"
+								var newprice =
+									parseInt(oldprice) - parseInt(price);
+								document.querySelector(
+									"#normalPrice"
 								).innerHTML = newprice;
-							this.className = "";
-						} else {
-							var oldprice = document.querySelector(
-								"#normalPrice"
+								this.className = "";
+							} else {
+								var oldprice = document.querySelector(
+									"#normalPrice"
 								).innerHTML;
-							var newprice = parseInt(oldprice) + parseInt(price);
-							document.querySelector(
-								"#normalPrice"
+								var newprice =
+									parseInt(oldprice) + parseInt(price);
+								document.querySelector(
+									"#normalPrice"
 								).innerHTML = newprice;
-							this.className = "js-cruwl";
-						}
-					};
-				})(myValue, parseInt(optionList[1]));
-			}
-		}
-
-		if (vipPrice) {
-			document.querySelector("#vipDiv").className =
-			"small-6 column my-price";
-			document.querySelector("#vipPrice").innerHTML = vipPrice;
-
-			var vipText = productObject[textToSend]["vipText"] || 0;
-			var vipOptions = productObject[textToSend]["vipOptions"] || 0;
-			var vipWorks = productObject[textToSend]["vipWorks"] || 0;
-
-			document.querySelector("#vipText").innerHTML = vipText;
-			document.querySelector("#vipWorks").innerHTML = vipWorks;
-
-			if (vipOptions) {
-				// Доработать onclick у чекбокса. Toggle класса JS-CRUWL
-
-				for (var i = 0; i < vipOptions.length; i++) {
-					var vipLi = document.createElement("li");
-					var optionList = vipOptions[i].split("|");
-					vipLi.innerHTML =
-					"<div class='row'><div class='small-7 column'><input checked disabled id='vipCheckbox" +
-					i +
-					"' type='checkbox'>" +
-					"<label for='vipCheckbox" +
-					i +
-					"'>" +
-					optionList[0] +
-					"</label></div>" +
-					"<div class='small-3 column'><span id='vipCheckboxValue" +
-					i +
-					"'>" +
-					optionList[1] +
-					"</span></div></div>";
-					document.querySelector("#vipLi").appendChild(vipLi);
+								this.className = "js-cruwl";
+							}
+						};
+					})(myValue, parseInt(pricesObject["Aprelevka"][optionPrice][i]));
 				}
 			}
+
+			if (vipPrice) {
+				document.querySelector("#vipDiv").className =
+					"small-6 column my-price";
+				document.querySelector("#vipPrice").innerHTML = vipPrice;
+
+				var vipText = productObject[textToSend]["vipText"] || 0;
+				var vipOptions = productObject[textToSend]["vipOptions"] || 0;
+				var vipWorks = productObject[textToSend]["vipWorks"] || 0;
+
+				document.querySelector("#vipText").innerHTML = vipText;
+				document.querySelector("#vipWorks").innerHTML = vipWorks;
+
+				if (vipOptions) {
+					// Доработать onclick у чекбокса. Toggle класса JS-CRUWL
+
+					for (var i = 0; i < vipOptions.length; i++) {
+						var vipLi = document.createElement("li");
+						var optionList = vipOptions[i].split("|");
+						vipLi.innerHTML =
+							"<div class='row'><div class='small-7 column'><input checked disabled id='vipCheckbox" +
+							i +
+							"' type='checkbox'>" +
+							"<label for='vipCheckbox" +
+							i +
+							"'>" +
+							optionList[0] +
+							"</label></div>" +
+							"<div class='small-3 column'><span id='vipCheckboxValue" +
+							i +
+							"'>" +
+							optionList[1] +
+							"</span></div></div>";
+						document.querySelector("#vipLi").appendChild(vipLi);
+					}
+				}
+			} else {
+				document.querySelector("#vipDiv").className =
+					"small-6 column my-price my-hide";
+			}
 		} else {
-			document.querySelector("#vipDiv").className =
-			"small-6 column my-price my-hide";
+			console.log("хуй там");
 		}
-
-	} else {
-		console.log("хуй там");
-	}
-
-
-};
+	};
 
 	// FORM SUBMIT FUNCTION
 
@@ -711,7 +783,7 @@ window.onload = function() {
 		var textToSend = (function() {
 			var allJsCruwl = document.querySelectorAll(
 				".js-cruwl option:checked"
-				);
+			);
 			var text = "";
 
 			for (var i = 0; i < allJsCruwl.length; i++) {
@@ -720,7 +792,7 @@ window.onload = function() {
 
 			var allJsCruwlInput = document.querySelectorAll(
 				"input:checked.js-cruwl"
-				);
+			);
 
 			for (var i = 0; i < allJsCruwlInput.length; i++) {
 				text += allJsCruwlInput[i].value;
@@ -734,23 +806,18 @@ window.onload = function() {
 
 	// INPUT PHONE MASK
 
-	var phoneInputs = new PhoneMask(document.querySelectorAll('#my-select-phone'), {
-		pattern: '(XXX) XXX XX XX',
-		prefix: '+7 ',
-		patternChar: 'X'
-	});
+	var phoneInputs = new PhoneMask(
+		document.querySelectorAll("#my-select-phone"),
+		{
+			pattern: "(XXX) XXX XX XX",
+			prefix: "+7 ",
+			patternChar: "X"
+		}
+	);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	document.querySelector(".my-a-click").onclick = function() {
+		this.innerHTML.charAt(0) === "+"
+			? (this.innerHTML = "- перечень работ и материалов.")
+			: (this.innerHTML = "+ перечень работ и материалов.");
+	};
 };

@@ -183,9 +183,9 @@
             <div class="small-6 column my-price" id="standartDiv">
               <h4>Стандарт - <span id="normalPrice">%price%</span></h4>
               <p id="standartText">%standartText%</p>
-              <p>
+              <p >
                 <!-- <a href="" id="standartWorks">%standartWorks%</a> -->
-                <a data-toggle="standartWorksToggleUl">+ перечень работ и материалов.</a>
+                <a data-toggle="standartWorksToggleUl" class="my-a-click">+ перечень работ и материалов.</a>
                 
                 <ul id="standartWorksToggleUl" class="my-show-block" data-toggler=".my-show-block my-hide">
 
@@ -206,87 +206,88 @@
               <h4>Премиум - <span id="vipPrice">%price%</span></h4>
               <p id="vipText">%vipText%</p>
               <p>
-                <a data-toggle="vipWorks">+ перечень работ и материалов.</a>
+                <a data-toggle="vipWorks" class="my-a-click">+ перечень работ и материалов.</a>
                 <ul id="vipWorks" class="my-hide" data-toggler=".my-show-block my-hide">
 
                 </ul>
                 
               </p>
-              
-              <ul id="vipLi">
+              <div class="dorabotki">
+                <ul id="vipLi">
                 <!-- <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
                 <li><input id="checkbox2" type="checkbox"><label for="checkbox2">Доработка водоснабжения</label></li>
                 <li><input id="checkbox3" type="checkbox"><label for="checkbox3">Доработка слива</label></li> -->
               </ul>
             </div>
-          </row>
-          
-        </div>  
-      </div>
-
-      <!-- FORM FOOTER + BUTTON -->
-      <div class="row align-center">
-        <div class="small-10 column my-form-footer">
-          <div class="row align-center">
-
-            <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-back-button">
-              <h5><a data-toggle="vipText standartWorksToggleUl my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button" class="my-back-button">Назад</a></h5>
-            </div>
-
-            <!-- PAGE 1 BUTTON -->
-            <div class="small-4 column" data-toggler=".my-hide" id="my-next-button">
-              <!-- Это был старый toggle а теперь мы ниже сделаем новый пограмный потому что у нас валидация не работает так -->
-              <!-- <h5><a data-toggle="standartWorksToggleUl my-form-center-page1 my-form-center-page2 my-back-button my-next-button my-send-button">Рассчитать</a></h5> -->
-              <h5><a>Рассчитать</a></h5>
-            </div>
-
-            <!-- PAGE 2 BUTTON -->
-            <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-send-button">
-              <h5><a class="my-send-button-class">Отправить заявку</a></h5>
-            </div>
-
           </div>
-        </div>
-      </div>
-    </form>
-  </section>
-
-  <section class="my-footer"> 
-
-    <div class="row align-center">
-      <div class="small-12 large-3 column">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-        </ul>
-      </div>
-      <div class="small-12 large-3 column">
-
-      </div>
-      <div class="small-12 large-3 column">
-
-      </div>
+        </row>
+        
+      </div>  
     </div>
 
-  </section>
+    <!-- FORM FOOTER + BUTTON -->
+    <div class="row align-center">
+      <div class="small-10 column my-form-footer">
+        <div class="row align-center">
 
-  <!-- Test Git Branch -->
+          <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-back-button">
+            <h5><a data-toggle="vipText standartWorksToggleUl my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button" class="my-back-button">Назад</a></h5>
+          </div>
 
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/what-input/dist/what-input.js"></script>
-  <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
-  <script src="js/app.js"></script>
+          <!-- PAGE 1 BUTTON -->
+          <div class="small-4 column" data-toggler=".my-hide" id="my-next-button">
+            <!-- Это был старый toggle а теперь мы ниже сделаем новый пограмный потому что у нас валидация не работает так -->
+            <!-- <h5><a data-toggle="standartWorksToggleUl my-form-center-page1 my-form-center-page2 my-back-button my-next-button my-send-button">Рассчитать</a></h5> -->
+            <h5><a>Рассчитать</a></h5>
+          </div>
 
-  <!-- http://js-mask.chukancev.ru/ -->
-  <script src="js/js-mask.min.js"></script>
+          <!-- PAGE 2 BUTTON -->
+          <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-send-button">
+            <h5><a class="my-send-button-class">Отправить заявку</a></h5>
+          </div>
 
-  <!-- YANDEX MAPS API -->
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
 
-  <!-- DADATA.ru jQuery.Suggestion Plugin -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/17.2/js/jquery.suggestions.min.js"></script>
+<section class="my-footer"> 
+
+  <div class="row align-center">
+    <div class="small-12 large-3 column">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+    <div class="small-12 large-3 column">
+
+    </div>
+    <div class="small-12 large-3 column">
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Test Git Branch -->
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/what-input/dist/what-input.js"></script>
+<script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+<script src="js/app.js"></script>
+
+<!-- http://js-mask.chukancev.ru/ -->
+<script src="js/js-mask.min.js"></script>
+
+<!-- YANDEX MAPS API -->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+<!-- DADATA.ru jQuery.Suggestion Plugin -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/17.2/js/jquery.suggestions.min.js"></script>
 
 </body>
 </html>
