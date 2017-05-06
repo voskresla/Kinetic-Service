@@ -69,6 +69,13 @@
 
 .my-a-line {
 	border-bottom: 2px #E23F54 solid;
+	padding-bottom: .3em;
+	color: #d1d1d1;
+	font-weight: 400;
+}
+
+.my-a-line:hover {
+	border-bottom: 2px #E23F54 solid;
 	padding-bottom: .5em;
 	color: #fff;
 	font-weight: 400;
@@ -178,6 +185,10 @@ select:invalid { color: gray; }
 	display:flex;
 }
 
+.my-show-block {
+	display:block;
+}
+
 .my-prices {
 
 	padding-left: 2em;
@@ -188,4 +199,22 @@ select:invalid { color: gray; }
 	
 
 
+}
+
+#vipLi, #standartLi  {
+
+	list-style:none;
+
+}
+
+#standartWorksToggleUl, #vipWorks {
+	font-size: .8em;
+}
+
+#standartText, #vipText {
+	height: 5em;
+}
+
+.optionPrice {
+	padding-left: 3em;
 }

@@ -59,7 +59,7 @@
         <div class="large-offset-1 main-ul-2">
           <ul>
             <li>
-              <a href="#" class="my-a-line">Рассчитать стоимость</a> <span>в <a data-open="geoModalTop" class="my-a-choose"></a></span>
+              <a href="#price" class="my-a-line">Рассчитать стоимость</a> <span>в <a data-open="geoModalTop" class="my-a-choose"></a></span>
             </li>
           </ul>
         </div>
@@ -92,7 +92,8 @@
 
   <!-- FORM -->
   <section class="my-form">
-    <form>
+
+    <form id="price" data-abide novalidate>
 
       <!-- FORM HEADER -->
       <div class="row align-center">
@@ -109,7 +110,7 @@
           <!-- LINE 1 SHOW ALWAYS -->
           <div class="row align-center"> 
             <div class="small-8 column">
-              <select required class="my-select-one js-cruwl">
+              <select required="true" class="my-select-one js-cruwl">
                 <option value="" disabled selected hidden>Бытовая техника / Кондиционеры / ТВ / Спутниковое телевидение / Цифровая техника</option>
                 <option value="bt">Бытовая техника</option>
                 <option value="cond">Кондиционер</option>
@@ -141,7 +142,7 @@
           </div>
 
           <!-- LINE 2 C SHOW DEPENDS -->
-          <div class="row align-center lineTwoC"> 
+          <!-- <div class="row align-center lineTwoC"> 
             <div class="small-4 column">
               <select required>
                 <option value="" disabled selected hidden>Установка / Демонтаж / Обслуживание</option>
@@ -158,15 +159,15 @@
                 <option value="2">18000-24000</option>
               </select>
             </div> 
-          </div>
+          </div> -->
 
           <!-- LINE 3 SHOW ALWAYS -->
           <div class="row align-center"> 
             <div class="small-4 column">
-              <input type="text" placeholder="Москва" id="geoDownInput"/>
+              <input type="text" placeholder="Москва" id="geoDownInput" pattern="text" required />
             </div>
             <div class="small-4 column">
-              <input type="text" placeholder="8 (999) 999-99-99" id="my-select-phone"/>
+              <input type="text" placeholder="8 (999) 999-99-99" id="my-select-phone" pattern="fr_tel" required />
             </div>
           </div>
 
@@ -182,7 +183,15 @@
             <div class="small-6 column my-price" id="standartDiv">
               <h4>Стандарт - <span id="normalPrice">%price%</span></h4>
               <p id="standartText">%standartText%</p>
-              <p><a href="" id="standartWorks">%standartWorks%</a></p>
+              <p>
+                <!-- <a href="" id="standartWorks">%standartWorks%</a> -->
+                <a data-toggle="standartWorksToggleUl">+ перечень работ и материалов.</a>
+                
+                <ul id="standartWorksToggleUl" class="my-show-block" data-toggler=".my-show-block my-hide">
+
+                </ul>
+                
+              </p>
               <ul id="standartLi">
 
                 <!-- Количество LI генерим в JS -->
@@ -190,13 +199,20 @@
                 <!-- <li><input id="checkbox1" type="checkbox"><label for="checkbox1">%standartOptions - Option%n% - Price%n% %</label></li>
                 <li><input id="checkbox2" type="checkbox"><label for="checkbox2">%standartOptions - Option%n% - Price%n% %</label></li>
                 <li><input id="checkbox3" type="checkbox"><label for="checkbox3">%standartOptions - Option%n% - Price%n% %</label></li> -->
-              
+
               </ul>
             </div>
             <div class="small-6 column my-price my-hide " id="vipDiv">
               <h4>Премиум - <span id="vipPrice">%price%</span></h4>
-              <p id="vipText"></p>
-              <p><a href="" id="vipWorks"></a></p>
+              <p id="vipText">%vipText%</p>
+              <p>
+                <a data-toggle="vipWorks">+ перечень работ и материалов.</a>
+                <ul id="vipWorks" class="my-hide" data-toggler=".my-show-block my-hide">
+
+                </ul>
+                
+              </p>
+              
               <ul id="vipLi">
                 <!-- <li><input id="checkbox1" type="checkbox"><label for="checkbox1">Доработка электросети</label></li>
                 <li><input id="checkbox2" type="checkbox"><label for="checkbox2">Доработка водоснабжения</label></li>
@@ -212,19 +228,21 @@
       <div class="row align-center">
         <div class="small-10 column my-form-footer">
           <div class="row align-center">
-            
+
             <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-back-button">
-              <h5><a data-toggle="my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button" class="my-back-button">НАЗАД</a></h5>
+              <h5><a data-toggle="vipText standartWorksToggleUl my-form-center-page1 my-form-center-page2 my-next-button my-send-button my-back-button" class="my-back-button">Назад</a></h5>
             </div>
 
             <!-- PAGE 1 BUTTON -->
             <div class="small-4 column" data-toggler=".my-hide" id="my-next-button">
-              <h5><a data-toggle="my-form-center-page1 my-form-center-page2 my-back-button my-next-button my-send-button">КНОПКА</a></h5>
+              <!-- Это был старый toggle а теперь мы ниже сделаем новый пограмный потому что у нас валидация не работает так -->
+              <!-- <h5><a data-toggle="standartWorksToggleUl my-form-center-page1 my-form-center-page2 my-back-button my-next-button my-send-button">Рассчитать</a></h5> -->
+              <h5><a>Рассчитать</a></h5>
             </div>
 
             <!-- PAGE 2 BUTTON -->
             <div class="small-4 column my-hide" data-toggler=".my-hide" id="my-send-button">
-              <h5><a class="my-send-button-class">ОТПРАВИТЬ ЗАЯВКУ</a></h5>
+              <h5><a class="my-send-button-class">Отправить заявку</a></h5>
             </div>
 
           </div>
@@ -260,6 +278,9 @@
   <script src="bower_components/what-input/dist/what-input.js"></script>
   <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
   <script src="js/app.js"></script>
+
+  <!-- http://js-mask.chukancev.ru/ -->
+  <script src="js/js-mask.min.js"></script>
 
   <!-- YANDEX MAPS API -->
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
