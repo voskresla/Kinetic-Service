@@ -93,7 +93,7 @@
 }
 
 .text-content {
-	padding-top: 2em;
+	padding-top: 4.5em;
 }
 
 .text-content-information {
@@ -148,7 +148,7 @@ select:invalid { color: gray; }
 	border-right: 1px #e6e6e6 solid;
 	margin-left: 1px;
 	margin-right: 1px;
-	padding-top: 1em;
+	
 }
 
 .my-form-footer {
@@ -168,7 +168,7 @@ select:invalid { color: gray; }
 		padding-top: 2em;
 	}
 }
- 
+
 .lineTwoBT, .lineTwoC {
 	display:none;
 }
@@ -191,13 +191,15 @@ select:invalid { color: gray; }
 
 .my-prices {
 
-	padding-left: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 2em;
 
 }
 
 .my-price {
-	
 
+	
 
 }
 
@@ -213,6 +215,7 @@ select:invalid { color: gray; }
 
 #standartText, #vipText {
 	height: 5em;
+	margin-bottom: 0;
 }
 
 .optionPrice {
@@ -222,6 +225,113 @@ select:invalid { color: gray; }
 
 
 .dorabotki {
-	padding-top: 0.5em;
-	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+	padding-top: 1em;
+	
+}
+
+.my-form-center {
+	background-image: url("../js/1.png");
+}
+
+.my-line-one {
+	padding-top: 2em;
+}
+
+.checkProduct {
+	
+	padding-left: 1em;
+	
+	
+
+}
+
+
+
+.divCheckProduct {
+	text-align: center; 
+	padding-bottom: 1.5em;
+}
+
+i {
+	font-size: 24px;
+}
+
+
+	.button {
+		border-bottom: 3px #E23F54 solid;
+		background-color: #ff735e;
+		font-weight: normal;
+
+	}
+
+
+
+	.button:hover {
+		border-bottom: 2px #E23F54 solid;
+		background-color: #ff735e;
+		font-weight: normal;
+
+	}
+
+
+
+
+.divCheckProduct {
+
+	padding-top: 2em;
+	
+}
+
+.infoOnePng {
+	margin-top: -41px;
+    margin-left: 65px;
+    /* text-align: center; */
+    width: 160px;
+}
+
+.dorabotka-info {
+	font-size: 16px;
+	padding-left: .5em;
+}
+
+[type='checkbox']+label {
+	margin-right: 0;
+}
+
+.fi-arrow-right {
+	font-size: 12px;
+}
+
+.fi-arrow-down {
+	font-size: 12px;
+}
+
+
+
+.style1 {
+	
+		border-top: 4px #32aeff solid;
+	
+}
+
+.style2 {
+	    border-top: 4px #ffae00 solid;
+}
+.style3 {
+	border-top: 4px #00b945 solid;
+}
+
+#infoMinOneBody, #infoMinTwoBody, #infoMinThreeBody {
+	padding-left: 1.2em;
+	padding-top: 1em;
+	padding-bottom: 2em;
+	font-size: 16px;
+}
+
+#normalPrice:after, #vipPrice:after {
+	content: " руб.";
+}
+
+.my-a-click {
+	font-size: 14px;
 }
