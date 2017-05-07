@@ -322,7 +322,7 @@ i {
 }
 
 #infoMinOneBody, #infoMinTwoBody, #infoMinThreeBody {
-	padding-left: 1.2em;
+	padding-left: 1.3em;
 	padding-top: 1em;
 	padding-bottom: 2em;
 	font-size: 16px;
@@ -334,4 +334,12 @@ i {
 
 .my-a-click {
 	font-size: 14px;
+}
+
+.my-a-click2 {
+	font-size: 14px;
+}
+
+a:hover {
+	color: #c14838;
 }

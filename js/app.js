@@ -525,9 +525,15 @@ window.onload = function() {
 	);
 
 	document.querySelector(".my-a-click").onclick = function() {
-		this.innerHTML.charAt(19) === "d"
-			? (this.innerHTML = "<i class='fi-arrow-down'></i> перечень работ и материалов.")
-			: (this.innerHTML = "<i class='fi-arrow-right'></i> перечень работ и материалов.");
+		this.innerHTML.charAt(22) === "r"
+			? (this.innerHTML = "<i class='fa fa-caret-down'></i> перечень работ и материалов 'Стандарт'.")
+			: (this.innerHTML = "<i class='fa fa-caret-right'></i> перечень работ и материалов 'Стандарт'.");
+	};
+
+	document.querySelector(".my-a-click2").onclick = function() {
+		this.innerHTML.charAt(22) === "r"
+			? (this.innerHTML = "<i class='fa fa-caret-down'></i> перечень работ и материалов 'Премиум'.")
+			: (this.innerHTML = "<i class='fa fa-caret-right'></i> перечень работ и материалов 'Премиум'.");
 	};
 
 	// document.querySelector(".my-select-two").onchange = function () {
@@ -573,4 +579,6 @@ function switchDorabotkaModal(name) {
 			return "0";
 			break;
 	}
+
 }
+
