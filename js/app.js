@@ -5,6 +5,13 @@ Foundation.Abide.defaults.patterns[
 ] = /[+]7\s[(]\d\d\d[)]\s\d\d\d\s\d\d\s\d\d/;
 
 window.onload = function() {
+
+// Тестим фокус по форме
+
+
+	
+
+
 	// <SELECT> OBJECT LIB
 
 	// #TODO: Не забыть удалить addoptions. В итоге такая реализация объекта не помогла. Addoptions переезжают в свой собственный объект поиск будет по ключу selectValue
@@ -180,7 +187,14 @@ window.onload = function() {
 				}
 			}
 		}
+
+		
+		document.querySelector(".my-select-two").focus();
+
+
 	};
+
+
 
 	// my-select-two onChange Function
 
@@ -188,14 +202,17 @@ window.onload = function() {
 		// #TODO: Передавая сюда this как нам проверить checked в select? Псевдокласса нет же?
 		//// console.log(this);
 
-		if (this.value === "BT_WM") {
-			document.querySelector(".my-form-center").style.backgroundImage =
-				"url('js/1.png')";
-		}
-		if (this.value === "BT_DW") {
-			document.querySelector(".my-form-center").style.backgroundImage =
-				"url('js/2.png')";
-		}
+
+		// Подставляем картинки на бэк в форме 
+
+		// if (this.value === "BT_WM") {
+		// 	document.querySelector(".my-form-center").style.backgroundImage =
+		// 		"url('js/1.png')";
+		// }
+		// if (this.value === "BT_DW") {
+		// 	document.querySelector(".my-form-center").style.backgroundImage =
+		// 		"url('js/2.png')";
+		// }
 
 		if (document.querySelector(".js-secondBtDiv")) {
 			document.querySelector(".js-secondBtDiv").remove();
@@ -247,6 +264,8 @@ window.onload = function() {
 			document.querySelector(".js-firstBtDiv").className =
 				"small-8 column js-firstBtDiv js-cruwl";
 		}
+
+		document.querySelector(".my-select-three").focus();
 	}
 
 	// FORM BACK BUTTON
@@ -277,12 +296,22 @@ window.onload = function() {
 
 	document.querySelector("#my-next-button a").onclick = function() {
 		// ABIDE VALIDATE
-
+		
 		var plugin = new Foundation.Abide($("form"), {});
 		var e = plugin.validateInput($("#my-select-phone"));
 		var a = plugin.validateInput($(".my-select-one"));
-		var b = plugin.validateInput($(".my-select-two"));
-		var c = plugin.validateInput($(".my-select-three"));
+		
+		if ($(".my-select-two").length > 0) {
+			var b = plugin.validateInput($(".my-select-two"));
+		} else {
+			var b = true;
+		};
+		
+		if ($(".my-select-three").length > 0) {
+			var c = plugin.validateInput($(".my-select-three"));
+		} else {
+			var c = true;
+		};
 		var d = plugin.validateInput($("#geoDownInput"));
 
 		// Проверяем на валидность все поля первого экрана
@@ -489,6 +518,8 @@ window.onload = function() {
 			return text;
 		})();
 
+		
+
 		console.log(textToSend);
 	};
 
@@ -554,6 +585,18 @@ function switchFormHead(text) {
 		case "btBT_WMСоло":
 			return "Установка и подключение стиральной машины";
 			break;
+		case "btBT_DWВстроенная":
+			return "Установка и подключение встроенной посудомоечной машины";
+			break;
+		case "btBT_DWСоло":
+			return "Установка и подключение посудомоечной машины";
+			break;
+		case "btBT_HСоло":
+			return "Установка и подключение холодильника";
+			break;
+		case "btBT_HВстроенный":
+			return "Установка и подключение встроенного холодильника";
+			break;
 		default:
 			return "Рассчитайте стоимость онлайн";
 			break;
@@ -573,6 +616,9 @@ function switchDorabotkaModal(name) {
 			return "dorabotkaModalTopSliv";
 			break;
 		case "Перенавес дверей холодильника с электронным табло ":
+			return "dorabotkaModalTopPerenavesE";
+			break;
+		case "Перенавес дверей холодильника без электронного табло ":
 			return "dorabotkaModalTopPerenaves";
 			break;
 		default:
@@ -581,4 +627,5 @@ function switchDorabotkaModal(name) {
 	}
 
 }
+
 

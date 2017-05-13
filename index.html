@@ -14,6 +14,10 @@
 </head>
 <body>
 
+<div class="row">
+  <div class="column-6"></div>
+  <div class="column-6"></div>
+</div>
   <!-- GEO MODAL #TODO: Доделать дизайн окна -->
   <!-- #TODO: Проверить в IE 10 работу DADATA-подсказки. -->
 
@@ -82,15 +86,54 @@
     </p> 
   </div>
 
-  <div class="reveal" id="dorabotkaModalTopPerenaves" data-reveal>
+  <div class="reveal" id="dorabotkaModalTopPerenavesE" data-reveal>
     <h4>Перенавес дверей с электронным табло</h4>
-    <p class="callout"></p>
+    <p class="callout">
+      Перенавес дверей холодильника с электронным управлением (не более двух) в зависимости от Вашего желания.
+    </p>
     <h6>Работы входящие в стоимость:</h6>
     <ul>
 
+    <li>перенавешивание дверей холодильника на левую или правую сторону в зависимости от Вашего желания</li>
+    <li>подключение электронного управления</li>
+    <li>проверка работоспособности техники</li>
+    <li>очистка рабочей зоны</li>
+
     </ul>
-    <h6>Материалы, входящие в стоимость доработки:</h6>
+    <h6>Работы не входящие в стоимость:</h6>
     <ul>
+
+    <li>выезд специалиста, установка, подключение аппарата</li>
+    <li>работы по изменению рабочих поверхностей</li>
+    <li>удлинение шнуров питания</li>
+    <li>подключение аппарата</li>
+
+    </ul>
+    <p>
+      Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления.
+    </p> 
+  </div>
+
+  <div class="reveal" id="dorabotkaModalTopPerenaves" data-reveal>
+    <h4>Перенавес дверей без электронного табло</h4>
+    <p class="callout">
+      Перенавес дверей холодильника (не более двух) в зависимости от  Вашего желания (дверцы без электронного управления)
+    </p>
+    <h6>Работы входящие в стоимость:</h6>
+    <ul>
+
+    <li>перенавешивание дверей холодильника на левую или правую сторону в зависимости от Вашего желания</li>
+    <li>проверка работоспособности техники</li>
+    <li>очистка рабочей зоны</li>
+
+    </ul>
+    <h6>Работы не входящие в стоимость:</h6>
+    <ul>
+
+    <li>выезд специалиста, установка, подключение аппарата</li>
+    <li>работы по изменению рабочих поверхностей</li>
+    <li>удлинение шнуров питания</li>
+    <li>подключение аппарата</li>
 
     </ul>
     <p>
@@ -101,7 +144,7 @@
   <!-- HEADER -->
   <header class="my-header">
     <div class="row">
-      <div class="small-12 large-8 column logo">LOGO</div>
+      <div class="small-12 large-8 column logo"></div>
       <div class="small-12 large-4 column">
         <div>
           Единая служба установки
@@ -142,6 +185,7 @@
       </div>
 
       <div class="small-12 large-7 column main-right">
+      <img class = "main-img" src="png/main.png">
         <!-- BONUS SLIDER OR WOW-INFORMATION -->
       </div>
 
@@ -158,12 +202,12 @@
       </div>
       <div class="small-12 large-4 column text-content-information--text style2">
 
-        <h5>Зачем заказывать установку?</h5>
+        <h5>Профессионально.</h5>
         <div id=infoMinTwoBody>От правильной установки и ввода в эксплуатацию вашего аппарат зависит не только срок работы техники и его гарантийное обслуживание, но и здоровье вас и вашей семьи</div>
       </div>
       <div class="small-12 large-4 column text-content-information--text style3">
 
-        <h5>Недорого.</h5>
+        <h5>Доступно.</h5>
         <div id="infoMinThreeBody">
           <div class="row">
             <div class="small-7 column">
@@ -216,10 +260,10 @@
             <div class="small-8 column my-line-one">
               <select required="true" class="my-select-one js-cruwl">
                 <option value="" disabled selected hidden>Бытовая техника / Кондиционеры / ТВ / Спутниковое телевидение / Цифровая техника</option>
-                <optgroup label="Группа 1">
+                
                   <option value="bt">Бытовая техника</option>
                   <option value="cond">Кондиционер</option>
-                </optgroup>
+                
                 <option value="tv">Телевизор</option>
                 <option value="sateliteTv">Спутниковое телевидение</option>
                 <option value="DT">Цифровая техника</option>
@@ -247,11 +291,11 @@
 
       <!-- FORM CENTER PAGE 2 -->
       
-      <div class="row align-center my-hide" data-toggler=".my-show" id="my-form-center-page2" s>
+      <div class="row align-center my-hide" data-toggler=".my-show" id="my-form-center-page2">
 
         <div class="small-10 column my-form-center">
 
-          <div class="row align-center my-prices large-uncollapse">
+          <div class="row align-center my-prices large-uncollapse" data-toggler=".my-hide" id="my-prices">
             <div class="small-6 column my-price" id="standartDiv">
               <h4>Стандарт <span id="normalPrice">%price%</span></h4>
 
@@ -273,7 +317,7 @@
                 </ul>
               </div>
 
-              <div class="divCheckProduct"><span class="checkProduct"><a class = "my-send-button-class-standart button">ОТПРАВИТЬ ЗАЯВКУ</a></span></div>
+              <div class="divCheckProduct"><span class="checkProduct"><a data-toggle="my-prices my-back-button my-form-center-page3" class = "my-send-button-class-standart button">ОТПРАВИТЬ ЗАЯВКУ</a></span></div>
 
             </div>
             <div class="small-6 column my-price my-hide" id="vipDiv">
@@ -306,6 +350,22 @@
 
         </div>  
       </div>
+
+      <!-- FORM PAGE 3 -->
+
+      <div class="row align-center my-hide" data-toggler=".my-show" id="my-form-center-page3">
+        <div class="small-10 column my-form-center" style="padding-top:1em;">
+          <div class="callout">
+            <h5>Спасибо! Мы перезвоним Вам в течении 30 минут.</h5>
+            <p>Заявка № %orderNumber%</p>
+            <p>Установка и подключение %productTitle%</p>
+            <p>Цена %Price%</p>
+
+          </div>
+        </div>
+      </div>
+
+
 
       <!-- FORM FOOTER + BUTTON -->
       <div class="row align-center">
