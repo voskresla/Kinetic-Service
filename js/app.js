@@ -1,32 +1,12 @@
 $(document).foundation();
 
 Foundation.Abide.defaults.patterns[
-	"fr_tel"
+"fr_tel"
 ] = /[+]7\s[(]\d\d\d[)]\s\d\d\d\s\d\d\s\d\d/;
 
 window.onload = function() {
 
-// Тестим фокус по форме
-
-
-	
-
-
-	// <SELECT> OBJECT LIB
-
-	// #TODO: Не забыть удалить addoptions. В итоге такая реализация объекта не помогла. Addoptions переезжают в свой собственный объект поиск будет по ключу selectValue
-
-	// var pricesObject = {
-	// 	btBT_WMВстроенная: ["1000", "1500"],
-	// 	btBT_WMСоло: ["500", "1000"],
-	// 	btBT_DWВстроенная: ["1100", "2500"],
-	// 	btBT_DWСоло: ["900", "1800"]
-	// };
-
-	// console.log(topLevelObjects);
-
 	// DADATA.ru Suggestion
-
 	// onClick по ссылке наверху
 
 	$("#geoModalTopInput").suggestions({
@@ -37,10 +17,10 @@ window.onload = function() {
 		onSelect: function(suggestion) {
 			// // console.log(suggestion);
 			document.querySelector(".my-a-choose").innerHTML =
-				suggestion.data.city;
+			suggestion.data.city;
 			$(".reveal").foundation("close");
 			document.querySelector("#geoDownInput").value =
-				suggestion.data.city;
+			suggestion.data.city;
 		}
 	});
 
@@ -59,82 +39,49 @@ window.onload = function() {
 		}
 	});
 
-	// // IP GEO API ipinfo.io
-
-	// $.get("https://ipinfo.io", function(response) {
-
-	//  	//var myGeo = JSON.stringify(response);
-
-	//  	document.querySelector(".my-a-choose").innerHTML += "ipinfo.io: " + (response.city) + "<br>";
-
-	//  }, "jsonp")
-
 	// GEO TEST YA MAPS
 
 	ymaps.ready(mapInit);
-	// console.log("ymaps", ymaps);
 
 	function mapInit() {
 		ymaps.geolocation
-			.get({
-				provider: "yandex",
-				autoReverseGeocode: true
-			})
-			.then(function(result) {
-				var tmp = result.geoObjects
-					.get(0)
-					.properties.get("metaDataProperty").GeocoderMetaData.Address
-					.Components.length;
-				document.querySelector(
-					".my-a-choose"
+		.get({
+			provider: "yandex",
+			autoReverseGeocode: true
+		})
+		.then(function(result) {
+			var tmp = result.geoObjects
+			.get(0)
+			.properties.get("metaDataProperty").GeocoderMetaData.Address
+			.Components.length;
+			document.querySelector(
+				".my-a-choose"
 				).innerHTML += result.geoObjects
-					.get(0)
-					.properties.get(
-						"metaDataProperty"
-					).GeocoderMetaData.Address.Components[tmp - 1].name;
-				document.querySelector(
-					"#geoDownInput"
+			.get(0)
+			.properties.get(
+				"metaDataProperty"
+				).GeocoderMetaData.Address.Components[tmp - 1].name;
+			document.querySelector(
+				"#geoDownInput"
 				).value = result.geoObjects
-					.get(0)
-					.properties.get(
-						"metaDataProperty"
-					).GeocoderMetaData.Address.Components[tmp - 1].name;
-			});
+			.get(0)
+			.properties.get(
+				"metaDataProperty"
+				).GeocoderMetaData.Address.Components[tmp - 1].name;
+		});
 	}
 
-	// 	// GEO TEST DADA
-
-	// 	$.ajaxSetup({
-	// 	url: "https://suggestions.dadata.ru/suggestions/api/4_1/rs/detectAddressByIp",
-	// 	headers: {
-	// 		Accept: "application/json",
-	// 		Authorization: "Token daa7df9d3d75b308e28317375c6c0587d5c17c06"
-	// 	}
-	// });
-
-	// 	$.ajax()
-	// 	.done(function(data){
-	// 		document.querySelector(".my-a-choose").innerHTML += "dada.ru: " + (data.location.data.city) + "<br>";
-	// 	});
-
-	// MY FIRST FORM
+	//	SELECT №1 onChange
 
 	document.querySelector(".my-select-one").onchange = function() {
 		var selectOneChecked = document.querySelector(
 			".my-select-one option:checked"
-		).value;
-		//// console.log(selectOneChecked.value + ": " + selectOneChecked.text);
-
+			).value;
+		
 		// #TODO: Переделать в одну функцию удаления слоя если он есть
 		// Удаление полей слоя при перевыборе
 
-		if (document.querySelector(".js-secondBtDiv")) {
-			document.querySelector(".js-secondBtDiv").remove();
-		}
-
-		if (document.querySelector(".js-firstBtDiv")) {
-			document.querySelector(".js-firstBtDiv").remove();
-		}
+		removeBtDiv();
 
 		// Заполняем вторую строку формы
 
@@ -148,7 +95,7 @@ window.onload = function() {
 			// Первый левый DIV в который обернем первый SELECT
 			var firstBtDiv = document.createElement("div");
 
-			firstBtDiv.className = "small-8 column js-firstBtDiv js-cruwl";
+			firstBtDiv.className = "large-8 small-12 column js-firstBtDiv js-cruwl";
 			lineTwoDiv.appendChild(firstBtDiv);
 
 			// Первый SELECT
@@ -181,38 +128,16 @@ window.onload = function() {
 				} else {
 					option.value = bt[i]["selectValue"];
 					option.text = bt[i]["selectOption"];
-					// console.log("Option: " + bt[i]["selectOption"]);
-
 					firstBtDiv_select.appendChild(option);
 				}
 			}
 		}
-
-		
 		document.querySelector(".my-select-two").focus();
-
-
 	};
-
-
 
 	// my-select-two onChange Function
 
 	function selectTwoOnChange() {
-		// #TODO: Передавая сюда this как нам проверить checked в select? Псевдокласса нет же?
-		//// console.log(this);
-
-
-		// Подставляем картинки на бэк в форме 
-
-		// if (this.value === "BT_WM") {
-		// 	document.querySelector(".my-form-center").style.backgroundImage =
-		// 		"url('js/1.png')";
-		// }
-		// if (this.value === "BT_DW") {
-		// 	document.querySelector(".my-form-center").style.backgroundImage =
-		// 		"url('js/2.png')";
-		// }
 
 		if (document.querySelector(".js-secondBtDiv")) {
 			document.querySelector(".js-secondBtDiv").remove();
@@ -220,9 +145,7 @@ window.onload = function() {
 
 		var selectTwoChecked = document.querySelector(
 			".my-select-two option:checked"
-		).value;
-
-		// console.log(selectTwoChecked);
+			).value;
 
 		var btAddOptions = btObjects[selectTwoChecked];
 
@@ -234,8 +157,8 @@ window.onload = function() {
 
 			secondBtDiv_select.className = "my-select-three";
 			secondBtDiv_select.setAttribute("required", "true");
-			firstBtDiv.className = "small-4 column js-firstBtDiv js-cruwl";
-			secondBtDiv.className = "small-4 column js-secondBtDiv js-cruwl";
+			firstBtDiv.className = "large-4 small-12 column js-firstBtDiv js-cruwl";
+			secondBtDiv.className = "large-4 small-12 column js-secondBtDiv js-cruwl";
 			lineTwoDiv.appendChild(secondBtDiv);
 			secondBtDiv.appendChild(secondBtDiv_select);
 
@@ -262,7 +185,7 @@ window.onload = function() {
 			}
 		} else {
 			document.querySelector(".js-firstBtDiv").className =
-				"small-8 column js-firstBtDiv js-cruwl";
+			"large-8 small-12 column js-firstBtDiv js-cruwl";
 		}
 
 		document.querySelector(".my-select-three").focus();
@@ -270,16 +193,18 @@ window.onload = function() {
 
 	// FORM BACK BUTTON
 
+	// Очищаем все innerHTML по кнопке back
+
 	document.querySelector(".my-back-button").onclick = function() {
 		var idToCleanArr = [
-			"#standartLi",
-			"#vipLi",
-			"#standartText",
-			"#vipText",
-			"#vipPrice",
-			"#normalPrice",
-			"#vipWorks",
-			"#standartWorksToggleUl"
+		"#standartLi",
+		"#vipLi",
+		"#standartText",
+		"#vipText",
+		"#vipPrice",
+		"#normalPrice",
+		"#vipWorks",
+		"#standartWorksToggleUl"
 		];
 
 		for (var i = 0; i < idToCleanArr.length; i++) {
@@ -288,7 +213,6 @@ window.onload = function() {
 				document.querySelector(idToCleanArr[i]).innerHTML = "";
 			}
 		}
-
 		document.querySelector("#my-form-head").innerHTML = switchFormHead("");
 	};
 
@@ -296,32 +220,32 @@ window.onload = function() {
 
 	document.querySelector("#my-next-button a").onclick = function() {
 		// ABIDE VALIDATE
-		
+
 		var plugin = new Foundation.Abide($("form"), {});
 		var e = plugin.validateInput($("#my-select-phone"));
 		var a = plugin.validateInput($(".my-select-one"));
-		
+
 		if ($(".my-select-two").length > 0) {
 			var b = plugin.validateInput($(".my-select-two"));
 		} else {
 			var b = true;
-		};
-		
+		}
+
 		if ($(".my-select-three").length > 0) {
 			var c = plugin.validateInput($(".my-select-three"));
 		} else {
 			var c = true;
-		};
+		}
 		var d = plugin.validateInput($("#geoDownInput"));
 
 		// Проверяем на валидность все поля первого экрана
 		if (a * b * c * d * e) {
 			var arrayToggle = [
-				"#standartWorksToggleUl",
-				"#my-form-center-page1",
-				"#my-form-center-page2",
-				"#my-back-button",
-				"#my-next-button"
+			"#standartWorksToggleUl",
+			"#my-form-center-page1",
+			"#my-form-center-page2",
+			"#my-back-button",
+			"#my-next-button"
 			];
 
 			arrayToggle.forEach(function(element, index) {
@@ -332,7 +256,7 @@ window.onload = function() {
 			var textToSend = (function() {
 				var allJsCruwl = document.querySelectorAll(
 					".js-cruwl option:checked"
-				);
+					);
 				var text = "";
 
 				for (var i = 0; i < allJsCruwl.length; i++) {
@@ -346,37 +270,37 @@ window.onload = function() {
 
 			document.querySelector("#my-form-head").innerHTML = switchFormHead(
 				textToSend
-			);
+				);
 
 			if (
 				$("#geoDownInput")[0].value === "Апрелевка" ||
 				$("#geoDownInput")[0].value === "г Апрелевка"
-			) {
+				) {
 				var normalPrice = pricesObject["Aprelevka"][textToSend][0] || 0;
-				var vipPrice = pricesObject["Aprelevka"][textToSend][1] || 0;
-			}
+			var vipPrice = pricesObject["Aprelevka"][textToSend][1] || 0;
+		}
 
-			if (
-				$("#geoDownInput")[0].value === "Москва" ||
-				$("#geoDownInput")[0].value === "г Москва"
+		if (
+			$("#geoDownInput")[0].value === "Москва" ||
+			$("#geoDownInput")[0].value === "г Москва"
 			) {
-				var normalPrice = pricesObject["Moskva"][textToSend][0] || 0;
-				var vipPrice = pricesObject["Moskva"][textToSend][1] || 0;
-			}
+			var normalPrice = pricesObject["Moskva"][textToSend][0] || 0;
+		var vipPrice = pricesObject["Moskva"][textToSend][1] || 0;
+	}
 
 			// LINK TEMPLATE на перечень работ
 			var templateLinkWorks = "";
 
 			var standartText = productObject[textToSend]["standartText"] || 0;
 			var standartOptions =
-				productObject[textToSend]["standartOptions"] || 0;
+			productObject[textToSend]["standartOptions"] || 0;
 			var standartWorks = productObject[textToSend]["standartWorks"] || 0;
 
 			document.querySelector("#normalPrice").innerHTML = normalPrice;
 			document.querySelector("#standartText").innerHTML = standartText;
 			document.querySelector(
 				"#standartWorksToggleUl"
-			).innerHTML = standartWorks;
+				).innerHTML = standartWorks;
 
 			// Генерим LI от StandartOptions
 
@@ -385,32 +309,20 @@ window.onload = function() {
 			if (standartOptions) {
 				for (var i = 0; i < standartOptions.length; i++) {
 					var standartLi = document.createElement("li");
-					
 					var optionList = standartOptions[i].split("|");
 					var optionPrice = textToSend + "Options";
 					var myModal = switchDorabotkaModal(optionList[0]);
-					console.log("sdsdsd"+myModal);
-					standartLi.innerHTML =
-						"<div class='row'><div class='small-7 column'><input value='" +
-						optionList[0] +
-						"' id='standartCheckbox" +
-						i +
-						"' type='checkbox'>" +
-						"<label for='standartCheckbox" +
-						i +
-						"'>" +
-						optionList[0] +
-						"</label><a data-open='" +
-						myModal +
-						"'><i class='fa fa-question-circle dorabotka-info'></i></a></div>" +
-						"<div class='small-4 column'><span id='standartCheckboxValue" +
-						i +
-						"'>" +
-						pricesObject["Aprelevka"][optionPrice][i] +
-						"</span></div></div>";
+
+					standartLi.innerHTML = generateOptionsLayout(
+						i,
+						optionList[0],
+						pricesObject["Aprelevka"][optionPrice][i],
+						myModal
+						);
+
 					document
-						.querySelector("#standartLi")
-						.appendChild(standartLi);
+					.querySelector("#standartLi")
+					.appendChild(standartLi);
 
 					var myValue = "#standartCheckboxValue" + i;
 
@@ -418,39 +330,41 @@ window.onload = function() {
 					(function(num, price) {
 						document.querySelector(
 							"#standartCheckbox" + i
-						).onclick = function() {
+							).onclick = function() {
 							if (!this.checked) {
 								var oldprice = document.querySelector(
 									"#normalPrice"
-								).innerHTML;
+									).innerHTML;
 								var newprice =
-									parseInt(oldprice) - parseInt(price);
+								parseInt(oldprice) - parseInt(price);
 								document.querySelector(
 									"#normalPrice"
-								).innerHTML = newprice;
+									).innerHTML = newprice;
 								this.className = "";
 							} else {
 								var oldprice = document.querySelector(
 									"#normalPrice"
-								).innerHTML;
+									).innerHTML;
 								var newprice =
-									parseInt(oldprice) + parseInt(price);
+								parseInt(oldprice) + parseInt(price);
 								document.querySelector(
 									"#normalPrice"
-								).innerHTML = newprice;
+									).innerHTML = newprice;
 								this.className = "js-cruwl";
 							}
 						};
 					})(
-						myValue,
-						parseInt(pricesObject["Aprelevka"][optionPrice][i])
+					myValue,
+					parseInt(pricesObject["Aprelevka"][optionPrice][i])
 					);
 				}
 			}
 
+			Foundation.reflow($(document), "toggler");
+
 			if (vipPrice) {
 				document.querySelector("#vipDiv").className =
-					"small-6 column my-price";
+				"small-6 column my-price";
 				document.querySelector("#vipPrice").innerHTML = vipPrice;
 
 				var vipText = productObject[textToSend]["vipText"] || 0;
@@ -467,25 +381,25 @@ window.onload = function() {
 						var vipLi = document.createElement("li");
 						var optionList = vipOptions[i].split("|");
 						vipLi.innerHTML =
-							"<div class='row'><div class='small-7 column'><input checked disabled id='vipCheckbox" +
-							i +
-							"' type='checkbox'>" +
-							"<label for='vipCheckbox" +
-							i +
-							"'>" +
-							optionList[0] +
-							"</label></div>" +
-							"<div class='small-4 column'><span id='vipCheckboxValue" +
-							i +
-							"'>" +
-							optionList[1] +
-							"</span></div></div>";
+						"<div class='row'><div class='small-7 column'><input checked disabled id='vipCheckbox" +
+						i +
+						"' type='checkbox'>" +
+						"<label for='vipCheckbox" +
+						i +
+						"'>" +
+						optionList[0] +
+						"</label></div>" +
+						"<div class='small-4 column'><span id='vipCheckboxValue" +
+						i +
+						"'>" +
+						optionList[1] +
+						"</span></div></div>";
 						document.querySelector("#vipLi").appendChild(vipLi);
 					}
 				}
 			} else {
 				document.querySelector("#vipDiv").className =
-					"small-6 column my-price my-hide";
+				"small-6 column my-price my-hide";
 			}
 		} else {
 			console.log("хуй там");
@@ -494,13 +408,15 @@ window.onload = function() {
 
 	// FORM SUBMIT FUNCTION
 
-	document.querySelector(".my-send-button-class-standart").onclick = function() {
+	document.querySelector(
+		".my-send-button-class-standart"
+		).onclick = function() {
 		// #TODO: Хватит писать как мудак. Напиши обход всех  OPTION:CHECKED разом а не руками их собирай.
 
 		var textToSend = (function() {
 			var allJsCruwl = document.querySelectorAll(
 				".js-cruwl option:checked"
-			);
+				);
 			var text = "STANDART + ";
 
 			for (var i = 0; i < allJsCruwl.length; i++) {
@@ -509,7 +425,7 @@ window.onload = function() {
 
 			var allJsCruwlInput = document.querySelectorAll(
 				"input:checked.js-cruwl"
-			);
+				);
 
 			for (var i = 0; i < allJsCruwlInput.length; i++) {
 				text += allJsCruwlInput[i].value;
@@ -517,8 +433,6 @@ window.onload = function() {
 
 			return text;
 		})();
-
-		
 
 		console.log(textToSend);
 	};
@@ -529,20 +443,18 @@ window.onload = function() {
 		var textToSend = (function() {
 			var allJsCruwl = document.querySelectorAll(
 				".js-cruwl option:checked"
-			);
+				);
 			var text = "VIP + ";
 
 			for (var i = 0; i < allJsCruwl.length; i++) {
 				text += allJsCruwl[i].value;
 			}
 
-			
 			return text;
 		})();
 
 		console.log(textToSend);
 	};
-
 
 	// INPUT PHONE MASK
 
@@ -553,19 +465,19 @@ window.onload = function() {
 			prefix: "+7 ",
 			patternChar: "_"
 		}
-	);
+		);
 
-	document.querySelector(".my-a-click").onclick = function() {
-		this.innerHTML.charAt(22) === "r"
-			? (this.innerHTML = "<i class='fa fa-caret-down'></i> перечень работ и материалов 'Стандарт'.")
-			: (this.innerHTML = "<i class='fa fa-caret-right'></i> перечень работ и материалов 'Стандарт'.");
-	};
+	// document.querySelector(".my-a-click").onclick = function() {
+	// 	this.innerHTML.charAt(22) === "r"
+	// 		? (this.innerHTML = "<i class='fa fa-caret-down'></i> перечень работ и материалов 'Стандарт'.")
+	// 		: (this.innerHTML = "<i class='fa fa-caret-right'></i> перечень работ и материалов 'Стандарт'.");
+	// };
 
-	document.querySelector(".my-a-click2").onclick = function() {
-		this.innerHTML.charAt(22) === "r"
-			? (this.innerHTML = "<i class='fa fa-caret-down'></i> перечень работ и материалов 'Премиум'.")
-			: (this.innerHTML = "<i class='fa fa-caret-right'></i> перечень работ и материалов 'Премиум'.");
-	};
+	// document.querySelector(".my-a-click2").onclick = function() {
+	// 	this.innerHTML.charAt(22) === "r"
+	// 		? (this.innerHTML = "<i class='fa fa-caret-down'></i> перечень работ и материалов 'Премиум'.")
+	// 		: (this.innerHTML = "<i class='fa fa-caret-right'></i> перечень работ и материалов 'Премиум'.");
+	// };
 
 	// document.querySelector(".my-select-two").onchange = function () {
 	// 	if (this.value==="BT_WM") {
@@ -580,26 +492,26 @@ window.onload = function() {
 function switchFormHead(text) {
 	switch (text) {
 		case "btBT_WMВстроенная":
-			return "Установка и подключение встроенной стиральной машины";
-			break;
+		return "Установка и подключение встроенной стиральной машины";
+		break;
 		case "btBT_WMСоло":
-			return "Установка и подключение стиральной машины";
-			break;
+		return "Установка и подключение стиральной машины";
+		break;
 		case "btBT_DWВстроенная":
-			return "Установка и подключение встроенной посудомоечной машины";
-			break;
+		return "Установка и подключение встроенной посудомоечной машины";
+		break;
 		case "btBT_DWСоло":
-			return "Установка и подключение посудомоечной машины";
-			break;
+		return "Установка и подключение посудомоечной машины";
+		break;
 		case "btBT_HСоло":
-			return "Установка и подключение холодильника";
-			break;
+		return "Установка и подключение холодильника";
+		break;
 		case "btBT_HВстроенный":
-			return "Установка и подключение встроенного холодильника";
-			break;
+		return "Установка и подключение встроенного холодильника";
+		break;
 		default:
-			return "Рассчитайте стоимость онлайн";
-			break;
+		return "Рассчитайте стоимость онлайн";
+		break;
 	}
 }
 
@@ -607,23 +519,138 @@ function switchDorabotkaModal(name) {
 	console.log(name);
 	switch (name) {
 		case "Доработка электросети":
-			return "dorabotkaModalTopElectro";
-			break;
+		return (
+			"" +
+			"<p>Данная услуга приобретается дополнительно к стандартной установке техники. При приобретении услуги отдельно, выезд специалиста оплачивается по действующему Прейскуранту цен на работы.<p>" +
+			"<h5>Работы входящие в стоимость:</h5>" +
+			"<ul>" +
+			"<li>Перфорация стен (перегородок) для прокладки коммуникаций</li>" +
+			"<li>Установка розетки с заземляющим контактом</li>" +
+			"<li>Прокладка электрического кабеля  открытым способом (до 5 м.)</li>" +
+			"<li>Монтажные работы в электрощитке.</li>" +
+			"</ul>" +
+			"<h5>Материалы, входящие в стоимость доработки:</h5>" +
+			"<ul>" +
+			"<li>Розетка 'евростандарт' 16 А. для открытой проводки;</li>" +
+			"<li>Вилка 'евростандарт' 16 А. (разборная);</li>" +
+			"<li>Автомат 16 А. / 2п. (отеч.);</li>" +
+			"<li>коробка под автомат;</li>" +
+			"<li>провод ПВС  3*1,5 мм (белый);</li>" +
+			"<li>Провод МПВ 4.0 мм (белый);</li>" +
+			"<li>крепежные изделия пластиковые зажимы для кабеля 7-8 мм.</li>" +
+			"</ul>" +
+			"<p>" +
+			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
+			"</p>"
+			);
+		break;
+
 		case "Доработка водоснабжения":
-			return "dorabotkaModalTopVoda";
-			break;
+		return (
+			"" +
+			"<p>Данная услуга приобретается дополнительно к стандартной установке техники. При приобретении услуги отдельно, выезд специалиста оплачивается по действующему Прейскуранту цен на работы.<p>" +
+			"<h5>Работы входящие в стоимость:</h5>" +
+			"<ul>" +
+			"<li>Перфорация стен (перегородок) для прокладки коммуникаций</li>" +
+			"<li>Монтаж водопроводного крана в водосеть клиента (один узел сантехкомплекта: кран, тройник, бочонок 1/2', переходник или водоотвод)</li>" +
+			"<li>Замена/сращивание/удлинение наливного шланга (до 4 м.), гибкой подводки</li>" +
+			"</ul>" +
+			"<h5>Материалы, входящие в стоимость доработки:</h5>" +
+			"<ul>" +
+			"<li>шланг наливной пластиковый (Италия)</li>" +
+			"<li>подводка гибкая бронированная на воду</li>" +
+			"<li>кран</li>" +
+			"<li>водоотвод латунный (в сборе)</li>" +
+			"<li>угольник</li>" +
+			"<li>переходник</li>" +
+			"<li>бочонок</li>" +
+			"<li>муфта</li>" +		
+			"</ul>" +
+			"<p>" +
+			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
+			"</p>"
+			);
+		break;
+
 		case "Доработка слива":
-			return "dorabotkaModalTopSliv";
-			break;
+		return (
+			"" +
+			"<p>Данная услуга приобретается дополнительно к стандартной установке техники. При приобретении услуги отдельно, выезд специалиста оплачивается по действующему Прейскуранту цен на работы.<p>" +
+			"<h5>Работы входящие в стоимость:</h5>" +
+			"<ul>" +
+			"<li>Замена/сращивание/удлинение, сливного шланга (до 1м.)</li>" +
+			"<li>Организация стационарного слива с гидрозатвором через отдельный сток (установка специального сифона с демонтажем старого), либо частичная замена деталей старого сифона (установка отвода, муфты)</li>" +
+			"</ul>" +
+			"<h5>Материалы, входящие в стоимость доработки:</h5>" +
+			"<ul>" +
+			"<li>сливной шланг</li>" +
+			"<li>концевик на модульный сливной шланг</li>" +
+			"<li>крепежные хомуты 'Norma','ABA' 17-28 мм.</li>" +
+			"<li>сифон с отводом для подключения СМА и ПММ, либо отвод для слива, гибкий гофрированный выпуск к сифону</li>" +
+			"<li>ниппель для сращивания сливных шлангов d.19/d.21 мм (пласт.)</li>" +
+			"</ul>" +
+			"<p>" +
+			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
+			"</p>"
+			);
+		break;
+
 		case "Перенавес дверей холодильника с электронным табло ":
-			return "dorabotkaModalTopPerenavesE";
-			break;
+		return "dorabotkaModalTopPerenavesE";
+		break;
+
 		case "Перенавес дверей холодильника без электронного табло ":
-			return "dorabotkaModalTopPerenaves";
-			break;
+		return "dorabotkaModalTopPerenaves";
+		break;
+
 		default:
-			return "0";
-			break;
+		return "0";
+		break;
+	}
+}
+
+function generateOptionsLayout(i, optionName, optionPrice, optionText) {
+	var text =
+	"<li>" +
+	"<div class='row'>" +
+	"<div class='large-9 small-9 column'>" +
+	"<input value='" +
+	optionName +
+	"' id='standartCheckbox" +
+	i +
+	"' type='checkbox'>" +
+	"<a class='my-a-click-options' data-toggle='standartOptions" +
+	i +
+	"'>" +
+	optionName +
+	"</a>" +
+	"</div>" +
+	"<div class='large-3 small-3 column'>" +
+	"<span id='standartCheckboxValue" +
+	i +
+	"'>" +
+	optionPrice +
+	"</span>" +
+	"</div>" +
+	"</div>" +
+	"<div id='standartOptions" +
+	i +
+	"' data-toggler='.my-hide' class = 'my-hide'>" +
+	optionText +
+	"</div>" +
+	"</li>";
+
+	return text;
+}
+
+
+function removeBtDiv () {
+	if (document.querySelector(".js-secondBtDiv")) {
+		document.querySelector(".js-secondBtDiv").remove();
+	}
+
+	if (document.querySelector(".js-firstBtDiv")) {
+		document.querySelector(".js-firstBtDiv").remove();
 	}
 
 }

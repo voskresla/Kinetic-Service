@@ -189,14 +189,17 @@ select:invalid { color: gray; }
 
 .my-hide {
 	display:none;
+	
 }
 
 .my-show {
 	display:flex;
+	
 }
 
 .my-show-block {
 	display:block;
+
 }
 
 .my-prices {
@@ -215,12 +218,57 @@ select:invalid { color: gray; }
 
 #vipLi, #standartLi  {
 
+
+
 	list-style:none;
+	margin-left: 0;
+
+	
 
 }
 
+#standartCheckboxValue_i, #standartCheckboxValue0, #standartCheckboxValue1, #standartCheckboxValue2, #standartCheckboxValue3 {
+	
+}
+
+#standartOptions_i,#standartOptions0,#standartOptions1,#standartOptions2,#standartOptions3
+{
+	font-size: .875em;
+	margin-bottom: 3rem;
+	margin-top: 1rem;
+    border: 1px dotted #cacaca;
+    /* border-top: 0px; */
+    /* border-right: 0; */
+    padding: 1rem;
+    margin-left: 1.25rem;
+
+	h5 {
+
+		margin-top: 1rem;
+
+
+	}
+
+	li {
+		padding-bottom: 0.5rem;
+	}
+}
+ 
+
+
+
 #standartWorksToggleUl, #vipWorks {
-	font-size: .8em;
+	font-size: .875em;
+	margin-bottom: 3rem;
+    border: 1px dotted #cacaca;
+    /* border-top: 0px; */
+    /* border-right: 0; */
+    padding: 1rem;
+    margin-top: 2rem;
+
+	li {
+		padding-bottom: 0.5rem;
+	}
 }
 
 #standartText, #vipText {
@@ -406,8 +454,36 @@ select:focus{
 }
 
 [type = 'text']:focus {
-	border-color: #e4e4e4;
+	border-color: #e9e9e9;
 	box-shadow: inset 0 0px 0px rgba(10,10,10,0.1);
 	transition: border-color 0.0s;
 
  }
+
+ .my-a-click-price {
+ 	display: inline-block;
+ 	border-bottom: 1px solid #aaa;
+ 	color: black;
+ }
+
+ .my-a-click-price:hover {
+ 	color: #E23F54;
+
+ }
+
+.my-a-click-options {
+ 	
+ 	display: inline-block;
+ 	font-size: 0.9rem;
+ 	border-bottom: 1px solid #aaa;
+ 	color: black;
+ 	margin-left: 0.5rem;
+ 	
+ }
+
+ .my-a-click-options:hover {
+ 	color: #E23F54;
+
+ }
+
+ 
