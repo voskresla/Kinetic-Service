@@ -21,6 +21,8 @@ window.onload = function() {
 			$(".reveal").foundation("close");
 			document.querySelector("#geoDownInput").value =
 			suggestion.data.city;
+
+			mainMinPrice(suggestion.data.city);
 		}
 	});
 
@@ -36,6 +38,9 @@ window.onload = function() {
 			// document.querySelector(".my-a-choose").innerHTML = suggestion.data.city;
 			// $(".reveal").foundation("close");
 			// document.querySelector("#geoDownInput").value = suggestion.data.city;
+			mainMinPrice(suggestion.data.city);
+			document.querySelector(".my-a-choose").innerHTML =
+			suggestion.data.city;
 		}
 	});
 
@@ -54,9 +59,8 @@ window.onload = function() {
 			.get(0)
 			.properties.get("metaDataProperty").GeocoderMetaData.Address
 			.Components.length;
-			document.querySelector(
-				".my-a-choose"
-				).innerHTML += result.geoObjects
+
+			var city = result.geoObjects
 			.get(0)
 			.properties.get(
 				"metaDataProperty"
@@ -68,6 +72,15 @@ window.onload = function() {
 			.properties.get(
 				"metaDataProperty"
 				).GeocoderMetaData.Address.Components[tmp - 1].name;
+			
+			document.querySelector(
+				".my-a-choose"
+				).innerHTML += city;
+
+			// заполняем miPrice от города
+
+			mainMinPrice(city);
+
 		});
 	}
 
@@ -363,6 +376,7 @@ window.onload = function() {
 			Foundation.reflow($(document), "toggler");
 
 			if (vipPrice) {
+				document.querySelector("#standartDiv").className = "large-6 small-12 column my-price";
 				document.querySelector("#vipDiv").className =
 				"small-6 column my-price";
 				document.querySelector("#vipPrice").innerHTML = vipPrice;
@@ -399,7 +413,8 @@ window.onload = function() {
 				}
 			} else {
 				document.querySelector("#vipDiv").className =
-				"small-6 column my-price my-hide";
+				"my-hide";
+				document.querySelector("#standartDiv").className = "large-8 small-12 column my-price";
 			}
 		} else {
 			console.log("хуй там");
@@ -541,7 +556,8 @@ function switchDorabotkaModal(name) {
 			"</ul>" +
 			"<p>" +
 			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
-			"</p>"
+			"</p>"+
+			"<div style='text-align:right'><a href='#price' data-toggle='standartOptions0'>закрыть</a></div>"
 			);
 		break;
 
@@ -568,7 +584,8 @@ function switchDorabotkaModal(name) {
 			"</ul>" +
 			"<p>" +
 			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
-			"</p>"
+			"</p>"+
+			"<div style='text-align:right'><a href='#price' data-toggle='standartOptions1'>закрыть</a></div>"
 			);
 		break;
 
@@ -591,16 +608,59 @@ function switchDorabotkaModal(name) {
 			"</ul>" +
 			"<p>" +
 			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
-			"</p>"
+			"</p>"+
+			"<div style='text-align:right'><a href='#price' data-toggle='standartOptions2'>закрыть</a></div>"
 			);
 		break;
 
 		case "Перенавес дверей холодильника с электронным табло ":
-		return "dorabotkaModalTopPerenavesE";
+		return (
+			"" +
+			"<p>Данная услуга приобретается дополнительно к стандартной установке техники. При приобретении услуги отдельно, выезд специалиста оплачивается по действующему Прейскуранту цен на работы.<p>" +
+			"<h5>Работы входящие в стоимость:</h5>" +
+			"<ul>" +
+			"<li>Перенавешивание дверей холодильника на левую или правую сторону в зависимости от Вашего желания</li>" +
+			"<li>Подключение электронного управления</li>" +
+			"<li>Проверка работоспособности техники</li>" +
+			"<li>Очистка рабочей зоны</li>" +
+			"</ul>" +
+			"<h5>Материалы, входящие в стоимость доработки:</h5>" +
+			"<ul>" +
+			"<li></li>" +
+			"<li></li>" +
+			"<li></li>" +
+			"<li></li>" +
+			"<li></li>" +
+			"</ul>" +
+			"<p>" +
+			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
+			"</p>"+
+			"<div style='text-align:right'><a href='#price' data-toggle='standartOptions0'>закрыть</a></div>"
+			);
 		break;
 
 		case "Перенавес дверей холодильника без электронного табло ":
-		return "dorabotkaModalTopPerenaves";
+		return (
+			"" +
+			"<p>Данная услуга приобретается дополнительно к стандартной установке техники. При приобретении услуги отдельно, выезд специалиста оплачивается по действующему Прейскуранту цен на работы.<p>" +
+			"<h5>Работы входящие в стоимость:</h5>" +
+			"<ul>" +
+			"<li></li>" +
+			"<li></li>" +
+			"</ul>" +
+			"<h5>Материалы, входящие в стоимость доработки:</h5>" +
+			"<ul>" +
+			"<li></li>" +
+			"<li></li>" +
+			"<li></li>" +
+			"<li></li>" +
+			"<li></li>" +
+			"</ul>" +
+			"<p>" +
+			"<br>Доработка производится с учетом требований производителя техники, «Правил техники безопасности» и контролирующих органов самоуправления." +
+			"</p>"+
+			"<div style='text-align:right'><a href='#price' data-toggle='standartOptions1'>закрыть</a></div>"
+			);
 		break;
 
 		default:
@@ -652,6 +712,34 @@ function removeBtDiv () {
 	if (document.querySelector(".js-firstBtDiv")) {
 		document.querySelector(".js-firstBtDiv").remove();
 	}
+
+}
+
+function mainMinPrice (city) {
+
+	if (
+		city === "Апрелевка" ||
+		city === "г Апрелевка"
+		) 
+	{
+		document.querySelector('.data-cond-price').innerHTML = "от " + pricesObject["Aprelevka"]["condcondSetup7000"][0] + " руб." || 0;
+		document.querySelector('.data-btwm-price').innerHTML = "от " + pricesObject["Aprelevka"]["btBT_WMСоло"][0] + " руб."|| 0;
+		document.querySelector('.data-bth-price').innerHTML = "от " + pricesObject["Aprelevka"]["btBT_HСоло"][0] + " руб." || 0;
+		
+	}
+
+	if (
+		city === "Москва" ||
+		city === "г Москва"
+		) 
+	{
+		document.querySelector('.data-cond-price').innerHTML = "от " + pricesObject["Moskva"]["condcondSetup7000"][0] + " руб." || 0;
+		document.querySelector('.data-btwm-price').innerHTML = "от " + pricesObject["Moskva"]["btBT_WMСоло"][0] + " руб." || 0;
+		document.querySelector('.data-bth-price').innerHTML = "от " + pricesObject["Moskva"]["btBT_HСоло"][0] + " руб." || 0;
+		
+	}
+
+
 
 }
 
